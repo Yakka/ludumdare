@@ -11,10 +11,12 @@ import backend.geom.Rectangle;
 
 public class Mail extends GameComponent {
 
+	private final float speed = 1;
 	private Image img;
 	private int x, y;
+	private int destX, destY;
 	
-	public Mail(int x, int y)
+	public Mail(int id)
 	{
 		try {
 			img = new Image("assets/mail.png");
@@ -22,20 +24,21 @@ public class Mail extends GameComponent {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.x = x;
-		this.y = y;
+		x = 500;
+		y = 500;
+		destX = destY = 200;
 	}
 	
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		// TODO Auto-generated method stub
+		img.draw(x, y);
 
 	}
 
 	@Override
 	public boolean isVisible() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -52,7 +55,27 @@ public class Mail extends GameComponent {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		// TODO Auto-generated method stub
+		float deltaSpeed = speed * delta;
+		if(x < destX){
+			x += deltaSpeed;
+			if(x > destX)
+				x = destX;
+		}
+		else if(x > destX){
+			x -= deltaSpeed;
+			if(x < destX)
+				x = destX;
+		}
+		if(y < destY){
+			y += deltaSpeed;
+			if(y > destY)
+				y = destY;
+		}
+		else if(y > destY){
+			y -= deltaSpeed;
+			if(y < destY)
+				y = destY;
+		}
 
 	}
 

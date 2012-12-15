@@ -22,16 +22,15 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	private GameComponentMap gcm;
-	
+
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
-			throws SlickException
-	{
+			throws SlickException {
 		characters = new ArrayList<Character>();
-		Character c1 = new Character(100, 50);
-		Character c2 = new Character(200, 50);
-		Character c3 = new Character(300, 50);
-		Character c4 = new Character(400, 50);
+		Character c1 = new Character(0);
+		Character c2 = new Character(1);
+		Character c3 = new Character(2);
+		Character c4 = new Character(3);
 		characters.add(c1);
 		characters.add(c2);
 		characters.add(c3);
@@ -47,22 +46,20 @@ public class GamePlay extends UIBasicGameState {
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game)
-			throws SlickException
-	{
+			throws SlickException {
 		super.enter(container, game);
 		timeBeforeEnd = END_TIME * 1000;
 	}
-	
+
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
-			throws SlickException 
-	{
+			throws SlickException {
 		gcm.renderAll(gc, sbg, g);
-		
+
 		g.setColor(Color.red);
-		g.drawString("Score : "+score, 50, 50);
-		
-		RenderTimer.draw(gc, g, (float)timeBeforeEnd / 1000.f);
+		g.drawString("Score : " + score, 50, 50);
+
+		RenderTimer.draw(gc, g, (float) timeBeforeEnd / 1000.f);
 	}
 
 	@Override
@@ -70,6 +67,8 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException 
 	{
 		timeBeforeEnd -= delta;
+		
+		
 		gcm.updateAll(gc, sbg, delta);
 	}
 
@@ -80,11 +79,10 @@ public class GamePlay extends UIBasicGameState {
 
 	@Override
 	protected void createUI(GameContainer container, StateBasedGame game)
-			throws SlickException
-	{
-		ui = new RootPane(container.getWidth(), container.getHeight()); //ecran
-		
-		//Champ pour le texte
+			throws SlickException {
+		ui = new RootPane(container.getWidth(), container.getHeight()); // ecran
+
+		// Champ pour le texte
 		final SpammerTextField field = new SpammerTextField(ui, 500, 32);
 		field.setPosition(50, 550);
 		field.addValidateListener(new IActionListener() {
@@ -93,11 +91,11 @@ public class GamePlay extends UIBasicGameState {
 			public void actionPerformed(Widget sender) {
 				sendMessage(field, field.getText());
 			}
-			
+
 		});
 		ui.add(field);
-		
-		//Bouton envoyer
+
+		// Bouton envoyer
 		PushButton btn = new PushButton(ui, 610, 550, 50, 32, "SPAM");
 		btn.addActionListener(new IActionListener() {
 			@Override
@@ -105,23 +103,24 @@ public class GamePlay extends UIBasicGameState {
 				sendMessage(field, field.getText());
 			}
 		});
-		ui.add(btn);	
-		
+		ui.add(btn);
+
 	}
-	
-	public void sendMessage(SpammerTextField field, String word)
-	{
-		if(fireWall.contains(word))
-		{
+
+	public void sendMessage(SpammerTextField field, String word) {
+
+		if (fireWall.contains(word)) {
 			System.out.println("BLOCKED");
 		}
-		
-		else for(Character c : characters){
-			if(c.isInInterest(word)){
-				score += COEF_SCORE;
-				System.out.println(score);
+
+		else
+			for (Character c : characters) {
+				if (c.isInInterest(word)) {
+					score += COEF_SCORE;
+					gcm.stageComponent(new Mail(c.getIDCharacter()));
+					System.out.println(score);
+				}
 			}
-		}
 
 		fireWall.add(word);
 		field.setText("");
