@@ -1,54 +1,41 @@
 package spammer;
-
-import java.util.HashSet;
-
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
 import backend.geom.Rectangle;
 
-public class FireWall extends GameComponent {
 
-	HashSet<String> words;
+public class Mail extends GameComponent {
 
-	public FireWall() {
-		words = new HashSet<String>();
-	}
-
-	public boolean contains(String s) {
-		return words.contains(s);
-	}
-
-	public void add(String s) {
-		words.add(s);
-	}
-
-	@Override
-	public String toString() {
-		String str = "";
-		for (String s : words) {
-			str += s + "\n";
+	private Image img;
+	private int x, y;
+	
+	public Mail(int x, int y)
+	{
+		try {
+			img = new Image("assets/mail.png");
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return str;
+		this.x = x;
+		this.y = y;
 	}
-
+	
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		gfx.setColor(Color.white);
-		gfx.drawString("FIREWALL", 700, 100);
-		int i = 0;
-		for (String s : words) {
-			i++;
-			gfx.drawString(s, 700, 100 + i * 20);
-		}
+		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	public boolean isVisible() {
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
@@ -59,12 +46,13 @@ public class FireWall extends GameComponent {
 
 	@Override
 	public void getRenderBounds(Rectangle range) {
-		range.setOriginAndSize(0, 0, 800, 600);
+		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
+		// TODO Auto-generated method stub
 
 	}
 
