@@ -38,7 +38,7 @@ public class Character extends GameComponent
 				img = new Image("assets/character_wesh.png");
 				break;
 			case 2:
-				img = new Image("assets/SackBoy.jpg");
+				img = new Image("assets/character_biker.png");
 				break;
 			case 3:
 				img = new Image("assets/character_nerd.png");

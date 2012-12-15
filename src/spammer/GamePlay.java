@@ -64,6 +64,7 @@ public class GamePlay extends UIBasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
+		g.setBackground(Color.gray);
 		scoreUI.draw(0, 0);
 		fieldUI.draw(0, 536);
 		sendUI.draw(560, 548);
@@ -123,6 +124,7 @@ public class GamePlay extends UIBasicGameState {
 	}
 
 	public void sendMessage(SpammerTextField field, String word) {
+		boolean received = false;
 		//BLOCKED
 		if (fireWall.contains(word)) {
 			gcm.stageComponent(new Mail(-1));
@@ -133,10 +135,14 @@ public class GamePlay extends UIBasicGameState {
 				if (c.isInInterest(word)) {
 					score += COEF_SCORE;
 					gcm.stageComponent(new Mail(c.getIDCharacter()));
+					fireWall.add(word);
+					received = true;
 				}
 			}
-
-		fireWall.add(word);
+		//Nulle part ou aller:
+		if(!received)
+			gcm.stageComponent(new Mail(-1));
+		
 		field.setText("");
 	}
 
