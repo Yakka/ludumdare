@@ -24,7 +24,7 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	private GameComponentMap gcm;
-	private Image scoreBg, fieldBg;
+	private Image scoreBg, fieldBg, sendBg;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -48,6 +48,7 @@ public class GamePlay extends UIBasicGameState {
 		
 		scoreBg = new Image("assets/score.jpg");
 		fieldBg = new Image("assets/enter_field.jpg");
+		sendBg = new Image("assets/enter_button.jpg");
 	}
 
 	@Override
@@ -62,6 +63,7 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException {
 		scoreBg.draw(0, 0);
 		fieldBg.draw(0, 536);
+		sendBg.draw(560, 548);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
 
 		g.setColor(Color.red);
