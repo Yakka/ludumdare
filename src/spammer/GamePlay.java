@@ -130,18 +130,22 @@ public class GamePlay extends UIBasicGameState {
 			gcm.stageComponent(new Mail(-1));
 		}
 
-		else
+		else{
 			for (Character c : characters) {
 				if (c.isInInterest(word)) {
 					score += COEF_SCORE;
 					gcm.stageComponent(new Mail(c.getIDCharacter()));
-					fireWall.add(word);
 					received = true;
+					fireWall.addSpecial(word);
 				}
 			}
-		//Nulle part ou aller:
-		if(!received)
-			gcm.stageComponent(new Mail(-1));
+			//Nulle part ou aller:
+			if(!received){
+				gcm.stageComponent(new Mail(-1));
+				fireWall.add(word);
+			}
+		}
+		
 		
 		field.setText("");
 	}

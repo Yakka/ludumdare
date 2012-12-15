@@ -13,22 +13,31 @@ import backend.geom.Rectangle;
 public class FireWall extends GameComponent {
 
 	HashSet<String> words;
+	HashSet<String> specialWords;
 
 	public FireWall() {
 		words = new HashSet<String>();
+		specialWords = new HashSet<String>();
 	}
 
 	public boolean contains(String s) {
-		return words.contains(s);
+		return words.contains(s) || specialWords.contains(s);
 	}
 
 	public void add(String s) {
 		words.add(s);
 	}
+	
+	public void addSpecial(String s){
+		specialWords.add(s);
+	}
 
 	@Override
 	public String toString() {
 		String str = "";
+		for (String s : specialWords) {
+			str += s + "\n";
+		}
 		for (String s : words) {
 			str += s + "\n";
 		}
@@ -39,6 +48,10 @@ public class FireWall extends GameComponent {
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		gfx.setColor(Color.red);
 		int i = 0;
+		for (String s : specialWords) {
+			i++;
+			gfx.drawString(s, 645, 25 + i * 20);
+		}
 		for (String s : words) {
 			i++;
 			gfx.drawString(s, 645, 25 + i * 20);

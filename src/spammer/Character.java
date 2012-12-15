@@ -16,7 +16,7 @@ public class Character extends GameComponent
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
 	public static final int X_BY_ID[] = {100, 200, 300, 400};
-	public static final int Y_BY_ID[] = {50, 50, 50, 50};
+	public static final int Y_BY_ID[] = {150, 150, 150, 150};
 	
 	private int id;
 	
