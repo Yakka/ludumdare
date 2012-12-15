@@ -22,7 +22,7 @@ public class Character extends GameComponent
 	{
 		profile = new CharacterProfile();
 		try {
-			img = new Image("data/SackBoy.jpg");
+			img = new Image("data/pic/SackBoy.jpg");
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
