@@ -37,8 +37,8 @@ public class RenderTimer
        
        gfx.pushTransform();
        gfx.translate(
-               (gc.getWidth() - w) / 2 - 16,
-               gfx.getFont().getLineHeight());
+               650,
+               30);
        
        gfx.drawString(mStr, 0, 0);        gfx.translate(dw * mStr.length(), 0);
        gfx.drawString(sep, 0, 0);        gfx.translate(sepw, 0);
