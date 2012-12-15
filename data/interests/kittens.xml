@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spammer.InterestData>
+  <words>
+    <string>kitten</string>
+    <string>kittens</string>
+    <string>cat</string>
+    <string>cute</string>
+  </words>
+  <expressions>
+    <string>I like cooking !</string>
+    <string>I'm hungry...</string>
+  </expressions>
+</spammer.InterestData>

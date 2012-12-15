@@ -1,51 +1,34 @@
 package spammer;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashSet;
 
-import backend.XMLTools;
+import backend.MathHelper;
 
-public class Interest extends ArrayList<String> {
+public class Interest
+{
+	private String expressions[];
+	private HashSet<String> words;
 	
-	public Interest(File file){
-		try {
-			FileReader reader = new FileReader(file);
-			BufferedReader bf = new BufferedReader(reader);
-			String str = "";
-			
-			while((str = bf.readLine()) != null){
-					System.out.print(str);
-				str.toLowerCase();
-				add(str);
-			}
-			
-			XMLTools.encodeToFile(this, "test.xml");
-			bf.close();
-			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-		      e.printStackTrace();
-	    }
-		
+	public Interest(InterestData idata)
+	{
+		expressions = idata.expressions;
+		words = new HashSet<String>();
+		for(int i = 0; i < idata.words.length; i++)
+			words.add(idata.words[i]);
+	}
+
+	public boolean contains(String word)
+	{
+		if(words != null)
+			return words.contains(word);
+		return false;
 	}
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	public String toString(){
-		String s = "";
-		for(String sc : this){
-			s += sc+"\n";
-		}
-		
-		return s;
+	public String getRandomExpression()
+	{
+		if(expressions != null)
+			return expressions[MathHelper.randInt(0, expressions.length - 1)];
+		return "I am not expressive.";
 	}
 
 }

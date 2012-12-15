@@ -27,7 +27,6 @@ public class XMLTools
 	 * @throws IOException
 	 */
 	public static boolean encodeToFile(Object object, String fileName)
-			throws FileNotFoundException, IOException
 	{
 		XStream xstream = new XStream(new DomDriver());
 		try
@@ -51,7 +50,6 @@ public class XMLTools
 	 * @throws IOException
 	 */
 	public static Object decodeFromFile(String fileName)
-			throws FileNotFoundException, IOException
 	{
 		Object object = null;
 		XStream xstream = new XStream(new DomDriver());
