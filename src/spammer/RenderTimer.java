@@ -37,7 +37,7 @@ public class RenderTimer
        
        gfx.pushTransform();
        gfx.translate(
-               650,
+               450,
                30);
        
        gfx.drawString(mStr, 0, 0);        gfx.translate(dw * mStr.length(), 0);

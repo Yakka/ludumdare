@@ -24,7 +24,7 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	private GameComponentMap gcm;
-	private Image scoreUI, fieldUI, sendUI, timeUI; //UI
+	private Image scoreUI, fieldUI, sendUI, timeUI, firewallUI; //UI
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -51,6 +51,7 @@ public class GamePlay extends UIBasicGameState {
 		fieldUI = new Image("assets/enter_field.jpg");
 		sendUI = new Image("assets/enter_button.jpg");
 		timeUI = new Image("assets/time.jpg");
+		firewallUI = new Image("assets/blacklist_bg.jpg");
 	}
 
 	@Override
@@ -66,7 +67,8 @@ public class GamePlay extends UIBasicGameState {
 		scoreUI.draw(0, 0);
 		fieldUI.draw(0, 536);
 		sendUI.draw(560, 548);
-		timeUI.draw(622, 0);
+		timeUI.draw(442, 0);
+		firewallUI.draw(620, 0);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
 
 		g.setColor(Color.red);

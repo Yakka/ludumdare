@@ -37,12 +37,11 @@ public class FireWall extends GameComponent {
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		gfx.setColor(Color.white);
-		gfx.drawString("FIREWALL", 700, 100);
+		gfx.setColor(Color.red);
 		int i = 0;
 		for (String s : words) {
 			i++;
-			gfx.drawString(s, 700, 100 + i * 20);
+			gfx.drawString(s, 645, 25 + i * 20);
 		}
 	}
 
