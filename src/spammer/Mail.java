@@ -17,7 +17,7 @@ public class Mail extends GameComponent {
 	public Mail(int x, int y)
 	{
 		try {
-			img = new Image("data/pic/mail.png");
+			img = new Image("assets/mail.png");
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
