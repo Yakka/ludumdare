@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponentMap;
+import backend.geom.Rectangle;
 import backend.ui.IActionListener;
 import backend.ui.PushButton;
 import backend.ui.RootPane;
@@ -27,10 +28,10 @@ public class GamePlay extends UIBasicGameState {
 	public void init(GameContainer gc, StateBasedGame stg)
 			throws SlickException {
 		characters = new ArrayList<Character>();
-		Character c1 = new Character(0);
-		Character c2 = new Character(1);
-		Character c3 = new Character(2);
-		Character c4 = new Character(3);
+		Character c1 = new Character();
+		Character c2 = new Character();
+		Character c3 = new Character();
+		Character c4 = new Character();
 		characters.add(c1);
 		characters.add(c2);
 		characters.add(c3);
@@ -54,7 +55,7 @@ public class GamePlay extends UIBasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
-		gcm.renderAll(gc, sbg, g);
+		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
 
 		g.setColor(Color.red);
 		g.drawString("Score : " + score, 50, 50);
@@ -108,9 +109,9 @@ public class GamePlay extends UIBasicGameState {
 	}
 
 	public void sendMessage(SpammerTextField field, String word) {
-
+		//BLOCKED
 		if (fireWall.contains(word)) {
-			System.out.println("BLOCKED");
+			gcm.stageComponent(new Mail(-1));
 		}
 
 		else
@@ -118,7 +119,6 @@ public class GamePlay extends UIBasicGameState {
 				if (c.isInInterest(word)) {
 					score += COEF_SCORE;
 					gcm.stageComponent(new Mail(c.getIDCharacter()));
-					System.out.println(score);
 				}
 			}
 

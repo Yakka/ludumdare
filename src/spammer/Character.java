@@ -11,6 +11,8 @@ import backend.geom.Rectangle;
 
 public class Character extends GameComponent
 {
+	private static int NB_CHAR = 0;
+	
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
 	public static final int X_BY_ID[] = {100, 200, 300, 400};
@@ -22,12 +24,29 @@ public class Character extends GameComponent
 	private Image img;
 	private int x, y;
 	
-	public Character(int id)
+	public Character()
 	{
 		profile = new CharacterProfile();
-		this.id = id;
+		this.id = NB_CHAR;
+		NB_CHAR ++;
 		try {
-			img = new Image("assets/SackBoy.jpg");
+			switch(id){
+			case 0:
+				img = new Image("assets/character_biatch.png");
+				break;
+			case 1:
+				img = new Image("assets/character_wesh.png");
+				break;
+			case 2:
+				img = new Image("assets/SackBoy.jpg");
+				break;
+			case 3:
+				img = new Image("assets/character_nerd.png");
+				break;
+			default:
+				img = new Image("assets/SackBoy.jpg");
+				break;
+			}
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,7 +93,7 @@ public class Character extends GameComponent
 
 	@Override
 	public void getRenderBounds(Rectangle range) {
-		// TODO Auto-generated method stub
+		range.setOriginAndSize(0, 0, 800, 600);
 		
 	}
 

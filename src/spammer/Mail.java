@@ -1,4 +1,5 @@
 package spammer;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -8,14 +9,13 @@ import org.newdawn.slick.state.StateBasedGame;
 import backend.GameComponent;
 import backend.geom.Rectangle;
 
-
 public class Mail extends GameComponent {
 
 	private final float speed = 1;
 	private Image img;
 	private int x, y;
 	private int destX, destY;
-	
+
 	public Mail(int id)
 	{
 		try {
@@ -26,9 +26,16 @@ public class Mail extends GameComponent {
 		}
 		x = 500;
 		y = 500;
-		destX = destY = 200;
+		if(id >= 0){
+			destX = Character.X_BY_ID[id];
+			destY = Character.Y_BY_ID[id];
+		}
+		else{
+			destX = 700;
+			destY = 300;
+		}
 	}
-	
+
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		img.draw(x, y);
@@ -56,24 +63,22 @@ public class Mail extends GameComponent {
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
 		float deltaSpeed = speed * delta;
-		if(x < destX){
+		if (x < destX) {
 			x += deltaSpeed;
-			if(x > destX)
+			if (x > destX)
 				x = destX;
-		}
-		else if(x > destX){
+		} else if (x > destX) {
 			x -= deltaSpeed;
-			if(x < destX)
+			if (x < destX)
 				x = destX;
 		}
-		if(y < destY){
+		if (y < destY) {
 			y += deltaSpeed;
-			if(y > destY)
+			if (y > destY)
 				y = destY;
-		}
-		else if(y > destY){
+		} else if (y > destY) {
 			y -= deltaSpeed;
-			if(y < destY)
+			if (y < destY)
 				y = destY;
 		}
 
