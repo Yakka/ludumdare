@@ -1,6 +1,8 @@
 package spammer;
 
+import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
@@ -28,13 +30,12 @@ public class MainGame extends UIStateBasedGame
 		MainGame game = new MainGame("Pouet");
 		
 		try { 
-		    AppGameContainer conteneur = new AppGameContainer(game); 
-		    conteneur.setDisplayMode(800,600,false); 
+		    AppGameContainer conteneur = new AppGameContainer(game);
+		    conteneur.setDisplayMode(800,600,false);
 		    conteneur.setTargetFrameRate(60);
 		    conteneur.setShowFPS(false);
-		    conteneur.start(); 
+		    conteneur.start();
 		    //conteneur.getInput().enableKeyRepeat();
-		    
 		} catch (SlickException e) { 
 		    e.printStackTrace(); 
 		}
@@ -44,7 +45,7 @@ public class MainGame extends UIStateBasedGame
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 		SpammerTheme sTheme = new SpammerTheme();
-		sTheme.font = gc.getDefaultFont();
+		SpammerTheme.load();
 		UIRenderer.setTheme(sTheme);
 	}
 
