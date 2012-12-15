@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -23,6 +24,7 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	private GameComponentMap gcm;
+	private Image scoreBg, fieldBg;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -43,6 +45,9 @@ public class GamePlay extends UIBasicGameState {
 		gcm.stageComponent(c2);
 		gcm.stageComponent(c3);
 		gcm.stageComponent(c4);
+		
+		scoreBg = new Image("assets/score.jpg");
+		fieldBg = new Image("assets/enter_field.jpg");
 	}
 
 	@Override
@@ -55,10 +60,12 @@ public class GamePlay extends UIBasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
+		scoreBg.draw(0, 0);
+		fieldBg.draw(0, 536);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
 
 		g.setColor(Color.red);
-		g.drawString("Score : " + score, 50, 50);
+		g.drawString("Score : " + score, 20, 20);
 
 		RenderTimer.draw(gc, g, (float) timeBeforeEnd / 1000.f);
 	}
@@ -84,8 +91,8 @@ public class GamePlay extends UIBasicGameState {
 		ui = new RootPane(container.getWidth(), container.getHeight()); // ecran
 
 		// Champ pour le texte
-		final SpammerTextField field = new SpammerTextField(ui, 500, 32);
-		field.setPosition(50, 550);
+		final SpammerTextField field = new SpammerTextField(ui, 165, 35);
+		field.setPosition(190, 550);
 		field.addValidateListener(new IActionListener() {
 
 			@Override
