@@ -1,24 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <spammer.InterestData>
   <words>
-    <string>chocolate</string>
-    <string>cake</string>
-    <string>cakes</string>
+    <string>rabbit</string>
+    <string>mushroom</string>
+    <string>burger</string>
+    <string>blueberry</string>
+    <string>tomato</string>
+    <string>frog</string>
+    <string>fish</string>
+    <string>beef</string>
     <string>mcdonalds</string>
-    <string>apple</string>
-    <string>bread</string>
-    <string>sandwich</string>
-    <string>sandwiches</string>
-    <string>banana</string>
-    <string>cookie</string>
-    <string>cookies</string>
-    <string>mars</string>
+    <string>honey</string>
     <string>bounty</string>
-    <string>eat</string>
+    <string>milk</string>
+    <string>bread</string>
+    <string>meat</string>
+    <string>jam</string>
+    <string>cookies</string>
+    <string>meal</string>
+    <string>cake</string>
+    <string>orange</string>
+    <string>fruit</string>
+    <string>rice</string>
+    <string>lamb</string>
+    <string>sauce</string>
+    <string>pig</string>
+    <string>cookie</string>
+    <string>banana</string>
+    <string>chocolate</string>
+    <string>skittles</string>
+    <string>sandwich</string>
+    <string>apple</string>
     <string>food</string>
+    <string>pizza</string>
+    <string>pork</string>
+    <string>eat</string>
+    <string>snail</string>
+    <string>vegetable</string>
+    <string>cheeseburger</string>
+    <string>hamburger</string>
+    <string>pie</string>
+    <string>pasta</string>
+    <string>cheese</string>
   </words>
   <expressions>
-    <string>I like cooking !</string>
-    <string>I'm hungry...</string>
+    <string>What's the best between chocolate pizza and vanilla burgerz??</string>
+    <string>I&apos;m SO hungry x_x</string>
+    <string>I want to cook the best cake ever! &lt;3</string>
   </expressions>
 </spammer.InterestData>

@@ -1,22 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <spammer.InterestData>
   <words>
     <string>computer</string>
-    <string>computers</string>
-    <string>cpu</string>
-    <string>ram</string>
-    <string>bios</string>
-    <string>microsoft</string>
-    <string>apple</string>
-    <string>mac</string>
+    <string>graphic</string>
     <string>mouse</string>
-    <string>bit</string>
-    <string>bits</string>
-    <string>byte</string>
     <string>bytes</string>
+    <string>mac</string>
+    <string>network</string>
+    <string>microsoft</string>
+    <string>ludum</string>
+    <string>twitter</string>
+    <string>byte</string>
+    <string>indie</string>
+    <string>ludumdare</string>
+    <string>bits</string>
+    <string>facebook</string>
+    <string>2d</string>
+    <string>jam</string>
+    <string>dare</string>
+    <string>rpg</string>
+    <string>video</string>
+    <string>c</string>
+    <string>fps</string>
+    <string>cpu</string>
+    <string>web</string>
+    <string>game</string>
+    <string>code</string>
+    <string>linux</string>
+    <string>bios</string>
+    <string>bit</string>
+    <string>console</string>
+    <string>str</string>
+    <string>3d</string>
+    <string>ram</string>
+    <string>apple</string>
+    <string>java</string>
+    <string>internet</string>
+    <string>mail</string>
+    <string>player</string>
+    <string>sockets</string>
   </words>
   <expressions>
-    <string>I like computers :)</string>
-    <string>My CPU is over 1000Hz !</string>
+    <string>I&apos;m so geek! I spend all my time playing on facebook 0.o</string>
+    <string>I want to marry my computer T_T</string>
+    <string>What&apos;s the best between MS_Dos and System 6 to play games?</string>
   </expressions>
 </spammer.InterestData>

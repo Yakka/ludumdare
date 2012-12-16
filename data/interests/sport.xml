@@ -1,0 +1,35 @@
+<spammer.InterestData>
+  <words>
+    <string>basketball</string>
+    <string>player</string>
+    <string>horse</string>
+    <string>score</string>
+    <string>ground</string>
+    <string>net</string>
+    <string>race</string>
+    <string>hiking</string>
+    <string>swimsuit</string>
+    <string>baseball</string>
+    <string>swim</string>
+    <string>tennis</string>
+    <string>soccer</string>
+    <string>ski</string>
+    <string>racket</string>
+    <string>goalkeeper</string>
+    <string>coach</string>
+    <string>wrestling</string>
+    <string>sport</string>
+    <string>game</string>
+    <string>team</string>
+    <string>goal</string>
+    <string>football</string>
+    <string>referee</string>
+    <string>basket</string>
+    <string>boxing</string>
+  </words>
+  <expressions>
+    <string>I love sport! I mean, I love to watch sport.</string>
+    <string>I'm so strong, so sexy ;D</string>
+    <string>Who wants to go to the swimming pool with me?</string>
+  </expressions>
+</spammer.InterestData>

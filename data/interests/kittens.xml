@@ -1,18 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <spammer.InterestData>
   <words>
-    <string>kitten</string>
-    <string>kittens</string>
+    <string>rabbit</string>
+    <string>mouse</string>
     <string>cat</string>
-    <string>cats</string>
+    <string>chicken</string>
+    <string>dog</string>
+    <string>donkey</string>
+    <string>horse</string>
+    <string>cow</string>
+    <string>rooster</string>
     <string>cute</string>
-    <string>pussy</string>
+    <string>insect</string>
+    <string>turtle</string>
+    <string>rat</string>
     <string>fur</string>
+    <string>sheep</string>
+    <string>ant</string>
     <string>kitty</string>
-    <string>meow</string>
+    <string>hen</string>
+    <string>pussy</string>
+    <string>lion</string>
+    <string>kitten</string>
+    <string>lizard</string>
+    <string>bee</string>
+    <string>goat</string>
+    <string>parrot</string>
+    <string>pig</string>
+    <string>bird</string>
+    <string>pork</string>
+    <string>whale</string>
+    <string>monkey</string>
+    <string>fish</string>
   </words>
   <expressions>
-    <string>I like cooking !</string>
-    <string>I'm hungry...</string>
+    <string>Have you seen this video with a cat? *_*</string>
+    <string>I&apos;ll never eat a horse, they have souls too!</string>
+    <string>Working in a zoo, BEST JOB EVER! lol</string>
   </expressions>
 </spammer.InterestData>
