@@ -24,7 +24,7 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	private GameComponentMap gcm;
-	private Image scoreUI, fieldUI, sendUI, timeUI, firewallUI; //UI
+	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -49,7 +49,6 @@ public class GamePlay extends UIBasicGameState {
 		//UI
 		scoreUI = new Image("assets/score.jpg");
 		fieldUI = new Image("assets/enter_field.jpg");
-		sendUI = new Image("assets/enter_button.jpg");
 		timeUI = new Image("assets/time.jpg");
 		firewallUI = new Image("assets/blacklist_bg.jpg");
 	}
@@ -67,7 +66,6 @@ public class GamePlay extends UIBasicGameState {
 		g.setBackground(Color.gray);
 		scoreUI.draw(0, 0);
 		fieldUI.draw(0, 536);
-		sendUI.draw(560, 548);
 		timeUI.draw(442, 0);
 		firewallUI.draw(620, 0);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
@@ -102,17 +100,15 @@ public class GamePlay extends UIBasicGameState {
 		final SpammerTextField field = new SpammerTextField(ui, 165, 35);
 		field.setPosition(190, 550);
 		field.addValidateListener(new IActionListener() {
-
 			@Override
 			public void actionPerformed(Widget sender) {
 				sendMessage(field, field.getText());
 			}
-
 		});
 		ui.add(field);
 
 		// Bouton envoyer
-		PushButton btn = new PushButton(ui, 610, 550, 50, 32, "SPAM");
+		SpamButton btn = new SpamButton(ui, 560, 550);
 		btn.addActionListener(new IActionListener() {
 			@Override
 			public void actionPerformed(Widget sender) {
