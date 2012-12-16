@@ -7,6 +7,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 
+import spammer.devtools.InterestEditor;
+
 import backend.MathHelper;
 import backend.XMLTools;
 import backend.ui.UIRenderer;
@@ -26,7 +28,6 @@ public class MainGame extends UIStateBasedGame
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
 		MainGame game = new MainGame("Pouet");
 		
 		try { 

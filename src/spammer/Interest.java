@@ -9,6 +9,11 @@ public class Interest
 	private String expressions[];
 	private HashSet<String> words;
 	
+	public Interest()
+	{
+		words = new HashSet();
+	}
+	
 	public Interest(InterestData idata)
 	{
 		expressions = idata.expressions;
@@ -29,6 +34,11 @@ public class Interest
 		if(expressions != null)
 			return expressions[MathHelper.randInt(0, expressions.length - 1)];
 		return "I am not expressive.";
+	}
+	
+	public boolean addKeyWord(String w)
+	{
+		return words.add(w);
 	}
 
 }
