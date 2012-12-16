@@ -229,7 +229,7 @@ public class DefaultTheme implements ITheme
 			caretX = x + gfx.getFont().getWidth(tf.getText());
 					
 			gfx.setColor(tf.getColor());
-			gfx.drawString(tf.getText(), x + 4, y + 4);
+			gfx.drawString(tf.getText(), x + 4, y);
 		}
 		
 		gfx.drawLine(caretX + 8, y + 6, caretX + 8, y + tf.getHeight() - 6);

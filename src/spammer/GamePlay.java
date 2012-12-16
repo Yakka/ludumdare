@@ -118,8 +118,9 @@ public class GamePlay extends UIBasicGameState {
 
 	}
 
-	public void sendMessage(SpammerTextField field, String word) {
+	public void sendMessage(SpammerTextField field, String _word) {
 		boolean received = false;
+		String word = _word.toLowerCase();
 		if(word == "")
 			return;
 		//BLOCKED
