@@ -4,14 +4,37 @@
     <string>shoes</string>
     <string>dress</string>
     <string>pants</string>
-    <string>socket</string>
-    <string>gloves</string>
     <string>sockets</string>
+    <string>gloves</string>
     <string>bikini</string>
     <string>bra</string>
+    <string>swimsuit</string>
+    <string>jacket</string>
+    <string>blazer</string>
+    <string>jean</string>
+    <string>skirt</string>
+    <string>coat</string>
+    <string>knitwear</string>
+    <string>polo</string>
+    <string>shirt</string>
+    <string>tailoring</string>
+    <string>trouser</string>
+    <string>boots</string>
+    <string>glasses</string>
+    <string>bag</string>
+    <string>hat</string>
+    <string>garb</string>
+    <string>raiment</string>
+    <string>tog</string>
+    <string>garment</string>
+    <string>apparel</string>
+    <string>cloak</string>
+    <string>string</string>
+    <string>cap</string>
   </words>
   <expressions>
-  	<string>I love clothes.</string>
-  	<string>Today I'm gonna shop duds.</string>
+  	<string>I want 2 change all my wardrobe... =)</string>
+  	<string>2day I'm gonna shop new clothes! :D</string>
+  	<string>My suitcase is full of clothes LOOOOL</string>
   </expressions>
 </spammer.InterestData>

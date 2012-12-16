@@ -19,7 +19,7 @@ import backend.geom.Rectangle;
 public class Mail extends GameComponent {
 
 	private static final int NB_MAILS = 10; //Nombre d'e-mails affiches
-	private final float SPEED = 400.f; // pixels/second
+	private final float SPEED = 800.f; // pixels/second
 	private static Image sprite;
 	private static Vector2f startPos = new Vector2f(350, 500);
 

@@ -10,7 +10,7 @@ import backend.XMLTools;
 public class CharacterProfile
 {
 	public static final String PATH = "data/interests/";
-	public static final int MAX_INTEREST = 3; // Nb de fichiers par profils
+	public static final int MAX_INTEREST = 2; // Nb de fichiers par profils
 
 	private ArrayList<Interest> interests;
 	

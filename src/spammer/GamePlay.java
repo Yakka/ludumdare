@@ -44,7 +44,7 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException {
 		//UI
 		scoreUI = new Image("assets/score.jpg");
-		fieldUI = new Image("assets/enter_field.jpg");
+		fieldUI = new Image("assets/enter_field.png");
 		timeUI = new Image("assets/time.jpg");
 		firewallUI = new Image("assets/blacklist_bg.jpg");
 		music = new Music("assets/music/spammer_v1.ogg", true);
@@ -86,7 +86,7 @@ public class GamePlay extends UIBasicGameState {
 		g.setFont(SpammerTheme.font);
 		g.setBackground(Color.gray);
 		scoreUI.draw(0, 0);
-		fieldUI.draw(0, 536);
+		fieldUI.draw(0, 478);
 		timeUI.draw(442, 0);
 		firewallUI.draw(620, 0);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
@@ -118,8 +118,8 @@ public class GamePlay extends UIBasicGameState {
 		ui = new RootPane(container.getWidth(), container.getHeight()); // ecran
 
 		// Champ pour le texte
-		final SpammerTextField field = new SpammerTextField(ui, 165, 35);
-		field.setPosition(190, 550);
+		final SpammerTextField field = new SpammerTextField(ui, 165, 28);
+		field.setPosition(190, 512);
 		field.addValidateListener(new IActionListener() {
 			@Override
 			public void actionPerformed(Widget sender) {

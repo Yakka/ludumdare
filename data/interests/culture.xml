@@ -1,0 +1,34 @@
+<spammer.InterestData>
+  <words>
+    <string>rap</string>
+    <string>rock</string>
+    <string>metal</string>
+    <string>indie</string>
+    <string>opera</string>
+    <string>videogames</string>
+    <string>painting</string>
+    <string>music</string>
+    <string>film</string>
+    <string>books</string>
+    <string>jazz</string>
+    <string>art</string>
+    <string>play</string>
+    <string>movie</string>
+    <string>classical</string>
+    <string>cinema</string>
+    <string>contemporary</string>
+    <string>tv</string>
+    <string>theatre</string>
+    <string>book</string>
+    <string>ballet</string>
+    <string>underground</string>
+    <string>comics</string>
+    <string>dance</string>
+    <string>electro</string>
+  </words>
+  <expressions>
+    <string>Have you seen the last Twilight movie ? I love it :&apos;3</string>
+    <string>I like Mozart, really, but Justin Bieber is so much better !</string>
+    <string>I like books, but only the ones with illustrations.</string>
+  </expressions>
+</spammer.InterestData>

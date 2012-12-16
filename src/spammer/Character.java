@@ -20,7 +20,7 @@ public class Character extends GameComponent
 	private static final int TIME_SPEECH = 5000; //Temps de l'etat
 	private static final int TIME_DAFUQ = 2000; 
 	private static final int TIME_SPAMMED = 2000; 
-	private static final int SPEAK_PERIOD = 15000; //Temps entre 2 bulles
+	private static final int SPEAK_PERIOD = 10000; //Temps entre 2 bulles
 	
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
@@ -55,7 +55,7 @@ public class Character extends GameComponent
 		profile = new CharacterProfile();
 		this.id = NB_CHAR;
 		NB_CHAR ++;
-		lastSpeak = 5000 + MathHelper.randInt(0, 10000);
+		lastSpeak = MathHelper.randInt(0, 10000);
 		try {
 			img = new SpriteSheet(new Image(IMAGE_BY_ID[id]), 100, 175);
 			dafuq = new Image("assets/character_dafuq.png");
