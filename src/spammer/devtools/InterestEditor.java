@@ -138,6 +138,7 @@ public class InterestEditor
 		else if(!interest.addKeyWord(str))
 			System.out.println("Word already set.");
 	}
+
 }
 
 

@@ -5,6 +5,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -22,12 +23,26 @@ public class GamePlay extends UIBasicGameState {
 	private FireWall fireWall;
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
-	private GameComponentMap gcm;
+	public static GameComponentMap gcm;
 	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
+	private Music music;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
 			throws SlickException {
+		//UI
+		scoreUI = new Image("assets/score.jpg");
+		fieldUI = new Image("assets/enter_field.jpg");
+		timeUI = new Image("assets/time.jpg");
+		firewallUI = new Image("assets/blacklist_bg.jpg");
+		music = new Music("assets/music/spammer_v1.ogg", true);
+	}
+
+	@Override
+	public void enter(GameContainer container, StateBasedGame game)
+			throws SlickException {
+		super.enter(container, game);
+		
 		characters = new ArrayList<Character>();
 		Character c1 = new Character();
 		Character c2 = new Character();
@@ -45,23 +60,16 @@ public class GamePlay extends UIBasicGameState {
 		gcm.stageComponent(c3);
 		gcm.stageComponent(c4);
 		
-		//UI
-		scoreUI = new Image("assets/score.jpg");
-		fieldUI = new Image("assets/enter_field.jpg");
-		timeUI = new Image("assets/time.jpg");
-		firewallUI = new Image("assets/blacklist_bg.jpg");
-	}
-
-	@Override
-	public void enter(GameContainer container, StateBasedGame game)
-			throws SlickException {
-		super.enter(container, game);
 		timeBeforeEnd = END_TIME * 1000;
+		
+		//container.setMusicOn(false);
+		music.play(1, 0.2f);
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
 			throws SlickException {
+		g.setFont(SpammerTheme.font);
 		g.setBackground(Color.gray);
 		scoreUI.draw(0, 0);
 		fieldUI.draw(0, 536);
@@ -70,6 +78,7 @@ public class GamePlay extends UIBasicGameState {
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
 
 		g.setColor(Color.red);
+		g.setFont(SpammerTheme.fontBig);
 		g.drawString("Score : " + score, 20, 20);
 
 		RenderTimer.draw(gc, g, (float) timeBeforeEnd / 1000.f);
@@ -80,8 +89,7 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException 
 	{
 		timeBeforeEnd -= delta;
-		
-		
+				
 		gcm.updateAll(gc, sbg, delta);
 	}
 
