@@ -50,10 +50,13 @@ public class FireWall extends GameComponent {
 	}
 
 	public void add(String s) {
-		words.add(s);
+		if(!specialWords.contains(s))
+			words.add(s);
 	}
 	
 	public void addSpecial(String s){
+		if(words.contains(s))
+			words.remove(s);
 		specialWords.add(s);
 	}
 
