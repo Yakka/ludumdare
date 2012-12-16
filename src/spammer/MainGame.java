@@ -16,18 +16,22 @@ import backend.ui.UIStateBasedGame;
 
 public class MainGame extends UIStateBasedGame
 {
+	public static final int INTRO_SCREEN = 1;
 	public static final int GAME_PLAY = 2;
+	public static final int SCORES_SCREEN = 3;
 
 	public MainGame(String name) {
 		super(name);
+		addState(new IntroScreen());
 		addState(GamePlay.get());
+		addState(new ScoresScreen());
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MainGame game = new MainGame("Pouet");
+		MainGame game = new MainGame("Spammer");
 		
 		try { 
 		    AppGameContainer conteneur = new AppGameContainer(game);
