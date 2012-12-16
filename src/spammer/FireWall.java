@@ -1,5 +1,6 @@
 package spammer;
 
+import java.awt.Font;
 import java.util.HashSet;
 
 import org.newdawn.slick.Animation;
@@ -71,20 +72,33 @@ public class FireWall extends GameComponent {
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		gfx.setColor(Color.red);
+
 		int i = 0;
+		gfx.setColor(Color.red);
 		for (String s : specialWords) {
 			i++;
-			gfx.drawString(s, 645, 25 + i * 20);
+			if(s.length() > 18)
+				s=s.substring(0, 15)+"...";
+			if(i < 28)
+				gfx.drawString(s, 645, 25 + i * 20);
+			else
+				break;
 		}
+		gfx.setColor(Color.black);
 		for (String s : words) {
 			i++;
-			gfx.drawString(s, 645, 25 + i * 20);
+			if(s.length() > 18)
+				s=s.substring(0, 15)+"...";
+			if(i < 28)
+				gfx.drawString(s, 645, 25 + i * 20);
+			else
+				break;
 		}
 		
 		if(!bumpEffect.isStopped())
 		{
 			gfx.drawAnimation(bumpEffect, 0, BLOCK_LINE_Y - 32);
+			
 		}
 	}
 
