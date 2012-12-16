@@ -139,29 +139,12 @@ public class GamePlay extends UIBasicGameState {
 	}
 
 	public void sendMessage(SpammerTextField field, String _word) {
-		boolean received = false;
 		String word = _word.toLowerCase();
 		if(word == "")
 			return;
-		//BLOCKED
-		if (fireWall.contains(word)) {
-			gcm.stageComponent(new Mail(-1));
-		}
-
-		else{
-			for (Character c : characters) {
-				if (c.isInInterest(word)) {
-					score += COEF_SCORE;
-					gcm.stageComponent(new Mail(c.getIDCharacter()));
-					received = true;
-					fireWall.addSpecial(word);
-				}
-			}
-			//Nulle part ou aller:
-			if(!received){
-				gcm.stageComponent(new Mail(-1));
-				fireWall.add(word);
-			}
+		
+		for (Character c : characters) {
+			gcm.stageComponent(new Mail(word, c.getIDCharacter()));
 		}
 		
 		field.setText("");

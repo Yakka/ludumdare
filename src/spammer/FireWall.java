@@ -9,15 +9,22 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
 import backend.geom.Rectangle;
+import backend.geom.Vector2i;
 
 public class FireWall extends GameComponent {
 
-	HashSet<String> words;
-	HashSet<String> specialWords;
+	public static final float BLOCK_LINE_Y = 400;
+	
+	private HashSet<String> words;
+	private HashSet<String> specialWords;
+	public Vector2i pos;
+	public Vector2i size;
 
 	public FireWall() {
 		words = new HashSet<String>();
 		specialWords = new HashSet<String>();
+		pos = new Vector2i(620, 0);
+		size = new Vector2i(180, 600);
 	}
 
 	public boolean contains(String s) {
@@ -84,6 +91,20 @@ public class FireWall extends GameComponent {
 	public void onDestruction() {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * Tests if the mail may pass or not.
+	 * Destroys the mail if it is assumed evil.
+	 * @param mail
+	 */
+	public void checkMail(Mail mail)
+	{
+		if(contains(mail.getKeyWord()))
+		{
+			mail.dispose(); // destroy the mail
+			// TODO play fire animation
+		}
 	}
 
 }

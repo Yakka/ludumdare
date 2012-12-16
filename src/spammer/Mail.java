@@ -1,43 +1,60 @@
 package spammer;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
 import backend.MathHelper;
+import backend.Path;
 import backend.geom.Rectangle;
 
 public class Mail extends GameComponent {
 
 	private static final int NB_MAILS = 10; //Nombre d'e-mails affiches
+	private static Image sprite;
+	private static Vector2f startPos = new Vector2f(500, 500);
+	
+	public static final int UNCHECKED = 0;
+	public static final int CHECKED = 1;
+	public static final int ARRIVED = 2;
 	
 	private final float SPEED = 0.5f;
 	private Image img;
-	private int x, y;
-	private int rot;
-	private int destX, destY;
+	private float posX, posY;
+	private float rot;
+	private float destX, destY;
+	private String keyWord;
+	private int state;
 
-	public Mail(int id)
+	public Mail(String keyWord, int id)
 	{
-		try {
-			img = new Image("assets/mail_small.png");
-		} catch (SlickException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(sprite == null)
+		{
+			try {
+				img = new Image("assets/mail_small.png");
+			} catch (SlickException e) {
+				e.printStackTrace();
+			}
 		}
-		x = 500 + MathHelper.randInt(-50, 50);
-		y = 500 + MathHelper.randInt(-50, 50);
+		
+		this.keyWord = keyWord;
+		posX = startPos.x + MathHelper.randInt(-50, 50);
+		posY = startPos.y + MathHelper.randInt(-50, 50);
 		rot = MathHelper.randInt(-45, 45);
-		if(id >= 0){
+		state = UNCHECKED;
+		if(id >= 0) {
 			destX = Character.X_BY_ID[id];
 			destY = Character.Y_BY_ID[id];
 		}
-		else{
-			destX = 700;
-			destY = 300;
+		else {
+			destX = 700 + MathHelper.randS(10);
+			destY = 300 + MathHelper.randS(10);
 		}
 	}
 
@@ -45,7 +62,7 @@ public class Mail extends GameComponent {
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		
 		gfx.pushTransform();
-		gfx.translate(x, y);
+		gfx.translate(posX, posY);
 		gfx.rotate(5, 4, rot);
 		gfx.drawImage(img, 0, 0);
 		gfx.popTransform();
@@ -54,7 +71,6 @@ public class Mail extends GameComponent {
 
 	@Override
 	public boolean isVisible() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -70,27 +86,30 @@ public class Mail extends GameComponent {
 	}
 
 	@Override
-	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		float deltaSpeed = SPEED * delta;
-		if (x < destX) {
-			x += deltaSpeed;
-			if (x > destX)
-				x = destX;
-		} else if (x > destX) {
-			x -= deltaSpeed;
-			if (x < destX)
-				x = destX;
+	public void update(GameContainer gc, StateBasedGame game, int delta)
+	{
+		float dt = (float)delta / 1000.f;
+		float speed = SPEED * dt;
+		
+		if(state == UNCHECKED)
+		{
+			if(posY > FireWall.BLOCK_LINE_Y)
+				posY += speed;
+			else
+			{
+				GamePlay.get().fireWall.checkMail(this);
+				state = CHECKED;
+			}
 		}
-		if (y < destY) {
-			y += deltaSpeed;
-			if (y > destY)
-				y = destY;
-		} else if (y > destY) {
-			y -= deltaSpeed;
-			if (y < destY)
-				y = destY;
+		else if(state == CHECKED)
+		{
+			Vector2f u = new Vector2f(destX - posX, destY - posY);
+			u.normalise();
+			posX += speed * u.x;
+			posY += speed * u.y;
+			if(posY < destY)
+				state = ARRIVED;
 		}
-
 	}
 
 	@Override
@@ -99,4 +118,11 @@ public class Mail extends GameComponent {
 
 	}
 
+	public String getKeyWord()
+	{
+		return keyWord;
+	}
+
 }
+
+
