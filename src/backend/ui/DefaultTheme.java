@@ -232,7 +232,8 @@ public class DefaultTheme implements ITheme
 			gfx.drawString(tf.getText(), x + 4, y);
 		}
 		
-		gfx.drawLine(caretX + 8, y + 6, caretX + 8, y + tf.getHeight()+8);
+		if(System.currentTimeMillis() / 100 % 2 == 0)
+			gfx.drawLine(caretX + 8, y + 6, caretX + 8, y + tf.getHeight()+8);
 	}
 
 }
