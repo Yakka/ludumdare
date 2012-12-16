@@ -19,14 +19,20 @@ public class Character extends GameComponent
 	
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
-	public static final int X_BY_ID[] = {50, 200, 350, 500};
-	public static final int Y_BY_ID[] = {200, 200, 200, 200};
+	public static final int X_BY_ID[] = {40, 190, 340, 490};
+	public static final int Y_BY_ID[] = {250, 250, 250, 250};
+	public static final String IMAGE_BY_ID[] = {
+		"assets/character_biatch.png",
+		"assets/character_wesh.png",
+		"assets/character_biker.png",
+		"assets/character_nerd.png"};
 	
 	private int id;
 	
 	private long lastSpeak;
 	private String speech = "";
 	private long remainingSpeech = 0;
+	private Bubble bubble;
 	
 	private CharacterProfile profile;
 	private Image img;
@@ -39,29 +45,14 @@ public class Character extends GameComponent
 		NB_CHAR ++;
 		lastSpeak = 5000 + MathHelper.randInt(0, 10000);
 		try {
-			switch(id){
-			case 0:
-				img = new Image("assets/character_biatch.png");
-				break;
-			case 1:
-				img = new Image("assets/character_wesh.png");
-				break;
-			case 2:
-				img = new Image("assets/character_biker.png");
-				break;
-			case 3:
-				img = new Image("assets/character_nerd.png");
-				break;
-			default:
-				img = new Image("assets/SackBoy.jpg");
-				break;
-			}
+			img = new Image(IMAGE_BY_ID[id]);
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.x = X_BY_ID[id];
 		this.y = Y_BY_ID[id];
+	
+		bubble = new Bubble(id);
 	}
 
 	public int getIDCharacter(){
@@ -88,8 +79,11 @@ public class Character extends GameComponent
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		img.draw(x, y);
+		bubble.render(gc, game, gfx);
 		if(remainingSpeech > 0)
-			gfx.drawString(speech, x, y-100);
+			bubble.setVisible(true);
+		else
+			bubble.setVisible(false);
 	}
 
 	@Override
@@ -115,9 +109,11 @@ public class Character extends GameComponent
 			remainingSpeech -= delta;
 		if(lastSpeak >= SPEAK_PERIOD){
 			lastSpeak = 0;
-			speech = profile.getRandomExpression();
-			remainingSpeech = TIME_SPEECH;
+			bubble.setText(profile.getRandomExpression());
+			remainingSpeech = TIME_SPEECH + MathHelper.randInt(0, 2000);;
 		}
+		
+		bubble.update(gc, game, delta);
 	}
 
 	@Override
