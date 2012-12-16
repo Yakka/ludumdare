@@ -8,6 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
 import backend.geom.Rectangle;
+import backend.ui.Text;
 
 public class Bubble extends GameComponent {
 
@@ -19,15 +20,17 @@ public class Bubble extends GameComponent {
 	public static final int X_BY_ID[] = {0, 160, 320, 480};
 	public static final int Y_BY_ID[] = {100, 100, 100, 100};
 	
-	private String text;
 	private int x, y;
 	private Image img;
 	private boolean visible;
+	private Text textBubble;
 	
 	public Bubble(int id){
 		this.x = X_BY_ID[id];
 		this.y = Y_BY_ID[id];
-		text = "";
+		textBubble = new Text();
+		textBubble.setMaxLineWidth(130);
+		textBubble.setWrapEnabled(true);
 		try{
 			img = new Image(IMAGE_BY_ID[id]);
 		}catch(SlickException e){
@@ -42,15 +45,15 @@ public class Bubble extends GameComponent {
 	}
 	
 	public void setText(String s){
-		text = s;
+		textBubble.setFromString(s);
 	}
 	
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		if(isVisible()){
 			img.draw(x, y);
-			gfx.drawString(text, x, y);
-			
+			gfx.setFont(SpammerTheme.font);
+			textBubble.render(gfx, x+5, y+2);
 		}
 	}
 
