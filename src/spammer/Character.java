@@ -20,7 +20,7 @@ public class Character extends GameComponent
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
 	public static final int X_BY_ID[] = {40, 190, 340, 490};
-	public static final int Y_BY_ID[] = {250, 250, 250, 250};
+	public static final int Y_BY_ID[] = {180, 180, 180, 180};
 	public static final String IMAGE_BY_ID[] = {
 		"assets/character_biatch.png",
 		"assets/character_wesh.png",
@@ -30,7 +30,6 @@ public class Character extends GameComponent
 	private int id;
 	
 	private long lastSpeak;
-	private String speech = "";
 	private long remainingSpeech = 0;
 	private Bubble bubble;
 	

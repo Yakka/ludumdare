@@ -18,7 +18,7 @@ public class Bubble extends GameComponent {
 	"assets/bubble_mid_right.png",
 	"assets/bubble_ext_right.png"};
 	public static final int X_BY_ID[] = {0, 160, 320, 480};
-	public static final int Y_BY_ID[] = {100, 100, 100, 100};
+	public static final int Y_BY_ID[] = {75, 75, 75, 75};
 	
 	private int x, y;
 	private Image img;
