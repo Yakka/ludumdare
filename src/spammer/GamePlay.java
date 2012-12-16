@@ -125,6 +125,8 @@ public class GamePlay extends UIBasicGameState {
 
 	public void sendMessage(SpammerTextField field, String word) {
 		boolean received = false;
+		if(word == "")
+			return;
 		//BLOCKED
 		if (fireWall.contains(word)) {
 			gcm.stageComponent(new Mail(-1));

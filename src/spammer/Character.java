@@ -7,11 +7,15 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
+import backend.MathHelper;
 import backend.geom.Rectangle;
 
 public class Character extends GameComponent
 {
 	private static int NB_CHAR = 0;
+	
+	private static final int TIME_SPEECH = 5000; //Temps entre 2 bulles
+	private static final int SPEAK_PERIOD = 15000; //Temps entre 2 bulles
 	
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
@@ -19,6 +23,10 @@ public class Character extends GameComponent
 	public static final int Y_BY_ID[] = {200, 200, 200, 200};
 	
 	private int id;
+	
+	private long lastSpeak;
+	private String speech = "";
+	private long remainingSpeech = 0;
 	
 	private CharacterProfile profile;
 	private Image img;
@@ -29,6 +37,7 @@ public class Character extends GameComponent
 		profile = new CharacterProfile();
 		this.id = NB_CHAR;
 		NB_CHAR ++;
+		lastSpeak = 5000 + MathHelper.randInt(0, 10000);
 		try {
 			switch(id){
 			case 0:
@@ -79,6 +88,8 @@ public class Character extends GameComponent
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		img.draw(x, y);
+		if(remainingSpeech > 0)
+			gfx.drawString(speech, x, y-100);
 	}
 
 	@Override
@@ -99,8 +110,14 @@ public class Character extends GameComponent
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		// TODO Auto-generated method stub
-		
+		lastSpeak += delta;
+		if(remainingSpeech > 0)
+			remainingSpeech -= delta;
+		if(lastSpeak >= SPEAK_PERIOD){
+			lastSpeak = 0;
+			speech = profile.getRandomExpression();
+			remainingSpeech = TIME_SPEECH;
+		}
 	}
 
 	@Override

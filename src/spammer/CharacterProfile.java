@@ -1,8 +1,6 @@
 package spammer;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -57,6 +55,10 @@ public class CharacterProfile
 				return true;
 		}
 		return false;
+	}
+	
+	public String getRandomExpression(){
+		return interests.get(MathHelper.randInt(0, interests.size() - 1)).getRandomExpression();
 	}
 
 	public String toString()
