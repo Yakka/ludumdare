@@ -19,7 +19,7 @@ import backend.ui.UIBasicGameState;
 import backend.ui.Widget;
 
 public class GamePlay extends UIBasicGameState {
-	private static final int COEF_SCORE = 1;
+	private static final int COEF_SCORE = 100;
 	private static final long END_TIME = 120; // seconds
 	private static GamePlay instance;
 	
@@ -35,7 +35,7 @@ public class GamePlay extends UIBasicGameState {
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
 	public GameComponentMap gcm;
-	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
+	private Image scoreUI, fieldUI, timeUI, firewallUI, logo; //UI
 	private Music music;
 	public Avatar avatar;
 
@@ -48,6 +48,7 @@ public class GamePlay extends UIBasicGameState {
 		timeUI = new Image("assets/time.jpg");
 		firewallUI = new Image("assets/blacklist_bg.jpg");
 		music = new Music("assets/music/spammer_v1.ogg", true);
+		logo = new Image("assets/logo.png");
 	}
 
 	@Override
@@ -90,10 +91,10 @@ public class GamePlay extends UIBasicGameState {
 		timeUI.draw(442, 0);
 		firewallUI.draw(620, 0);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
-
-		g.setColor(Color.red);
+		logo.draw(275, -10);
+		g.setColor(Color.black);
 		g.setFont(SpammerTheme.fontBig);
-		g.drawString("Score : " + score, 20, 20);
+		g.drawString("Score: " + score, 20, 20);
 
 		RenderTimer.draw(gc, g, (float) timeBeforeEnd / 1000.f);
 	}
@@ -129,7 +130,7 @@ public class GamePlay extends UIBasicGameState {
 		ui.add(field);
 
 		// Bouton envoyer
-		SpamButton btn = new SpamButton(ui, 560, 550);
+		SpamButton btn = new SpamButton(ui, 560, 500);
 		btn.addActionListener(new IActionListener() {
 			@Override
 			public void actionPerformed(Widget sender) {

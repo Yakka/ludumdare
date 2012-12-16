@@ -20,7 +20,7 @@ public class Character extends GameComponent
 	private static final int TIME_SPEECH = 5000; //Temps de l'etat
 	private static final int TIME_DAFUQ = 2000; 
 	private static final int TIME_SPAMMED = 2000; 
-	private static final int SPEAK_PERIOD = 10000; //Temps entre 2 bulles
+	private static final int SPEAK_PERIOD = 8000; //Temps entre 2 bulles
 	
 	public static final int WIDTH = 118;
 	public static final int HEIGHT = 194;
