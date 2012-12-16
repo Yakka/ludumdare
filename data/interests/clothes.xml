@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <spammer.InterestData>
   <words>
     <string>shoes</string>
@@ -5,5 +6,12 @@
     <string>pants</string>
     <string>socket</string>
     <string>gloves</string>
+    <string>sockets</string>
+    <string>bikini</string>
+    <string>bra</string>
   </words>
+  <expressions>
+  	<string>I love clothes.</string>
+  	<string>Today I'm gonna shop duds.</string>
+  </expressions>
 </spammer.InterestData>

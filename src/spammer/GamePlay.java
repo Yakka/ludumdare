@@ -19,6 +19,7 @@ import backend.ui.Widget;
 public class GamePlay extends UIBasicGameState {
 	private static final int COEF_SCORE = 1;
 	private static final long END_TIME = 120; // seconds
+	
 	private ArrayList<Character> characters;
 	private FireWall fireWall;
 	private int score = 0;
