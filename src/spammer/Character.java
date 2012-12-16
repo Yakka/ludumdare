@@ -57,7 +57,7 @@ public class Character extends GameComponent
 		try {
 			img = new Image(IMAGE_BY_ID[id]);
 			dafuq = new Image("assets/character_dafuq.png");
-			dafuq = new Image("assets/character_spam.png");
+			spam = new Image("assets/character_spam.png");
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
