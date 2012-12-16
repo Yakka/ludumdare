@@ -12,9 +12,13 @@ import backend.geom.Rectangle;
 
 public class Character extends GameComponent
 {
+	
+	
 	private static int NB_CHAR = 0;
 	
-	private static final int TIME_SPEECH = 5000; //Temps entre 2 bulles
+	private static final int TIME_SPEECH = 5000; //Temps de l'etat
+	private static final int TIME_DAFUQ = 1000; 
+	private static final int TIME_SPAMMED = 1000; 
 	private static final int SPEAK_PERIOD = 15000; //Temps entre 2 bulles
 	
 	public static final int WIDTH = 118;
@@ -29,12 +33,19 @@ public class Character extends GameComponent
 	
 	private int id;
 	
+	private enum State{
+		NOTHING, SPEAKING, SPAMMED, DAFUQ
+	}
+	private State state;
+	
 	private long lastSpeak;
-	private long remainingSpeech = 0;
+	private long remainingSpeech;
+	private long remainingDafuq;
+	private long remainingSpammed;
 	private Bubble bubble;
 	
 	private CharacterProfile profile;
-	private Image img;
+	private Image img, dafuq, spam;
 	private int x, y;
 	
 	public Character()
@@ -45,13 +56,17 @@ public class Character extends GameComponent
 		lastSpeak = 5000 + MathHelper.randInt(0, 10000);
 		try {
 			img = new Image(IMAGE_BY_ID[id]);
+			dafuq = new Image("assets/character_dafuq.png");
+			spam = new Image("assets/character_spam.png");
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
 		this.x = X_BY_ID[id];
 		this.y = Y_BY_ID[id];
-	
+		state = State.NOTHING;
 		bubble = new Bubble(id);
+		
+		initEveryTimes();
 	}
 
 	public int getIDCharacter(){
@@ -71,18 +86,46 @@ public class Character extends GameComponent
 		return profile.containsWord(word);
 	}
 
+	public void receiveSpam(){
+		state = State.SPAMMED;
+		initEveryTimes();
+		remainingSpammed = TIME_SPAMMED;
+	}
+	
+	public void receiveWrongMail(){
+		state = State.DAFUQ;
+		initEveryTimes();
+		remainingDafuq = TIME_DAFUQ;
+	}
+	
+	private void initEveryTimes(){
+		remainingSpeech = 0;
+		remainingDafuq = 0;
+		remainingSpammed = 0;
+	}
+	
 	public String toString() {
 		return profile.toString();
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		img.draw(x, y);
+		switch(state){
+		case NOTHING:
+			img.draw(x, y);
+			break;
+		case SPEAKING:
+			img.draw(x, y);
+			break;
+		case DAFUQ:
+			dafuq.draw(x, y);
+			break;
+		case SPAMMED:
+			spam.draw(x, y);
+			break;
+		}
+		
 		bubble.render(gc, game, gfx);
-		if(remainingSpeech > 0)
-			bubble.setVisible(true);
-		else
-			bubble.setVisible(false);
 	}
 
 	@Override
@@ -103,15 +146,47 @@ public class Character extends GameComponent
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		lastSpeak += delta;
-		if(remainingSpeech > 0)
-			remainingSpeech -= delta;
-		if(lastSpeak >= SPEAK_PERIOD){
-			lastSpeak = 0;
-			bubble.setText(profile.getRandomExpression());
-			remainingSpeech = TIME_SPEECH + MathHelper.randInt(0, 2000);
-		}
 		
+		State nextState = State.NOTHING;
+		switch(state){
+		case NOTHING:
+			bubble.setVisible(false);
+			lastSpeak += delta;
+			if(lastSpeak >= SPEAK_PERIOD){
+				lastSpeak = 0;
+				bubble.setText(profile.getRandomExpression());
+				remainingSpeech = TIME_SPEECH + MathHelper.randInt(0, 2000);
+				nextState = State.SPEAKING;
+			}
+			else
+				nextState = State.NOTHING;
+			break;
+		case SPEAKING:
+			bubble.setVisible(true);
+			remainingSpeech -= delta;
+			if(remainingSpeech <= 0)
+				nextState = State.NOTHING;
+			else
+				nextState = State.SPEAKING;
+			break;
+		case DAFUQ:
+			remainingDafuq -= delta;
+			bubble.setVisible(true);
+			if(remainingDafuq <= 0)
+				nextState = State.NOTHING;
+			else
+				nextState = State.DAFUQ;
+			break;
+		case SPAMMED:
+			remainingSpammed -= delta;
+			bubble.setVisible(true);
+			if(remainingSpammed <= 0)
+				nextState = State.NOTHING;
+			else
+				nextState = State.DAFUQ;
+			break;
+		}
+		state = nextState;
 		bubble.update(gc, game, delta);
 	}
 
