@@ -56,10 +56,11 @@
     <string>playstation</string>
     <string>ps2</string>
     <string>ps3</string>
+    <string>wow</string>
   </words>
   <expressions>
-    <string>Play ! play ! play ! play again !</string>
-    <string>Wow, this game has been made by ENJMIN students !</string>
-    <string>I wish I could afford the last Call of Duty...</string>
+    <string>Play! play! play! play again!</string>
+    <string>Wow, this game has been made by ENJMIN students!</string>
+    <string>I wish I could afford the last World of Duty: Modern Honor 3...</string>
   </expressions>
 </spammer.InterestData>

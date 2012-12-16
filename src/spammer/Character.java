@@ -220,7 +220,8 @@ public class Character extends GameComponent
 		{
 			receiveWrongMail();
 			Sounds.get().play("dafuq", 1, 0.15f);
-			GamePlay.get().fireWall.add(mail.getKeyWord());
+			if(!GamePlay.get().fireWall.contains(mail.getKeyWord()))
+				GamePlay.get().fireWall.add(mail.getKeyWord());
 			return false;
 		}
 	}

@@ -1,6 +1,5 @@
 package spammer;
 
-import java.awt.Font;
 import java.util.HashSet;
 
 import org.newdawn.slick.Animation;
