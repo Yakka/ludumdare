@@ -111,7 +111,8 @@ public class TextField extends BasicWidget
 			String newText = text + c;
 			if(font != null)
 			{
-				if(font.getWidth(newText) < getWidth())
+				// TODO horrible fix : remove the /2
+				if(font.getWidth(newText)/2 < getWidth())
 					text = newText;
 			}
 			else

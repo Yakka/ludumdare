@@ -1,5 +1,6 @@
 package spammer;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
@@ -10,18 +11,13 @@ public class SpammerTextField extends TextField {
 
 	public SpammerTextField(Widget parent, int width, int height) {
 		super(parent, width, height);
-		// TODO Auto-generated constructor stub
+		this.setColor(Color.black);
+		this.setFont(SpammerTheme.fontBig);
 	}
 	
 	@Override
 	protected boolean isEnterable(char c) {
 		return super.isEnterable(c) && c != ' ';
-	}
-	
-	@Override
-	public boolean mousePressed(int button, int x, int y)
-	{
-		return super.mousePressed(button, x, y);
 	}
 	
 	@Override

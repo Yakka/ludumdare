@@ -23,7 +23,7 @@ public class SpammerTheme extends DefaultTheme
 	}
 	
 	public Font getFont(){
-		return fontBig;
+		return font;
 	}
 
 }
