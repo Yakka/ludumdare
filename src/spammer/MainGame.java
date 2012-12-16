@@ -20,8 +20,7 @@ public class MainGame extends UIStateBasedGame
 
 	public MainGame(String name) {
 		super(name);
-		BasicGameState gs = new GamePlay();
-		addState(gs);
+		addState(GamePlay.get());
 	}
 
 	/**

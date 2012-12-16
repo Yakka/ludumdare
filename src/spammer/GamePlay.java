@@ -19,12 +19,20 @@ import backend.ui.Widget;
 public class GamePlay extends UIBasicGameState {
 	private static final int COEF_SCORE = 1;
 	private static final long END_TIME = 120; // seconds
+	private static GamePlay instance;
 	
-	private ArrayList<Character> characters;
-	private FireWall fireWall;
+	public static GamePlay get()
+	{
+		if(instance == null)
+			instance = new GamePlay();
+		return instance;
+	}
+	
+	public ArrayList<Character> characters;
+	public FireWall fireWall;
 	private int score = 0;
 	private long timeBeforeEnd; // milliseconds
-	public static GameComponentMap gcm;
+	public GameComponentMap gcm;
 	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
 	private Music music;
 

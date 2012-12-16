@@ -45,7 +45,7 @@ public class MailParticleSpawner extends GameComponent
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta)
 	{
-		GamePlay.gcm.stageComponent(new ParticleMail(pos.x, pos.y));
+		GamePlay.get().gcm.stageComponent(new ParticleMail(pos.x, pos.y));
 		remainingTime -= delta;
 		if(remainingTime < 0)
 			dispose();
