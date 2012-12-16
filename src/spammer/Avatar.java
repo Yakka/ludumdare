@@ -56,14 +56,18 @@ public class Avatar extends GameComponent {
 	
 	//CHANGEMENTS d'ETATS
 	public void gettingTrolling(){
+		state = State.TROLL;
+		remainingTime = BUBBLE_TIME;
 	}
 	
 	public void gettingCash(){
-		
+		state = State.CASH;
+		remainingTime = BUBBLE_TIME;
 	}
 	
 	public void gettingAngry(){
-		
+		state = State.ANGRY;
+		remainingTime = BUBBLE_TIME;
 	}
 	
 	@Override
@@ -104,8 +108,31 @@ public class Avatar extends GameComponent {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		// TODO Auto-generated method stub
-
+		switch(state){
+		case NOTHING:
+			break;
+		case TROLL:
+			remainingTime -= delta;
+			if(remainingTime <= 0)
+				state = State.NOTHING;
+			else
+				state = State.TROLL;
+			break;
+		case ANGRY:
+			remainingTime -= delta;
+			if(remainingTime <= 0)
+				state = State.NOTHING;
+			else
+				state = State.ANGRY;
+			break;
+		case CASH:
+			remainingTime -= delta;
+			if(remainingTime <= 0)
+				state = State.NOTHING;
+			else
+				state = State.CASH;
+			break;
+		}
 	}
 
 	@Override
