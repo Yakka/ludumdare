@@ -150,4 +150,9 @@ public class GamePlay extends UIBasicGameState {
 		field.setText("");
 	}
 
+	public void increaseScore(int i)
+	{
+		score += i * COEF_SCORE;
+	}
+
 }

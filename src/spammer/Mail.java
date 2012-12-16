@@ -17,18 +17,19 @@ import backend.geom.Rectangle;
 public class Mail extends GameComponent {
 
 	private static final int NB_MAILS = 10; //Nombre d'e-mails affiches
+	private final float SPEED = 400.f; // pixels/second
 	private static Image sprite;
-	private static Vector2f startPos = new Vector2f(500, 500);
-	
+	private static Vector2f startPos = new Vector2f(350, 500);
+
 	public static final int UNCHECKED = 0;
 	public static final int CHECKED = 1;
 	public static final int ARRIVED = 2;
-	
-	private final float SPEED = 0.5f;
+
 	private Image img;
 	private float posX, posY;
 	private float rot;
 	private float destX, destY;
+	private int destID;
 	private String keyWord;
 	private int state;
 
@@ -56,6 +57,8 @@ public class Mail extends GameComponent {
 			destX = 700 + MathHelper.randS(10);
 			destY = 300 + MathHelper.randS(10);
 		}
+		
+		destID = id;
 	}
 
 	@Override
@@ -94,7 +97,7 @@ public class Mail extends GameComponent {
 		if(state == UNCHECKED)
 		{
 			if(posY > FireWall.BLOCK_LINE_Y)
-				posY += speed;
+				posY -= speed;
 			else
 			{
 				GamePlay.get().fireWall.checkMail(this);
@@ -108,7 +111,11 @@ public class Mail extends GameComponent {
 			posX += speed * u.x;
 			posY += speed * u.y;
 			if(posY < destY)
+			{
 				state = ARRIVED;
+				// destID should be valid
+				GamePlay.get().characters.get(destID).receiveMail(this);
+			}
 		}
 	}
 

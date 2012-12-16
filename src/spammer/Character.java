@@ -12,8 +12,6 @@ import backend.geom.Rectangle;
 
 public class Character extends GameComponent
 {
-	
-	
 	private static int NB_CHAR = 0;
 	
 	private static final int TIME_SPEECH = 5000; //Temps de l'etat
@@ -193,7 +191,21 @@ public class Character extends GameComponent
 	@Override
 	public void onDestruction() {
 		// TODO Auto-generated method stub
-		
+	}
+
+	public void receiveMail(Mail mail)
+	{
+		if(isInInterest(mail.getKeyWord()))
+		{
+			receiveSpam();
+			GamePlay.get().increaseScore(1);
+			GamePlay.get().fireWall.addSpecial(mail.getKeyWord());
+		}
+		else
+		{
+			receiveWrongMail();
+			GamePlay.get().fireWall.add(mail.getKeyWord());
+		}
 	}
 
 }

@@ -13,7 +13,7 @@ import backend.geom.Vector2i;
 
 public class FireWall extends GameComponent {
 
-	public static final float BLOCK_LINE_Y = 400;
+	public static final float BLOCK_LINE_Y = 450;
 	
 	private HashSet<String> words;
 	private HashSet<String> specialWords;
