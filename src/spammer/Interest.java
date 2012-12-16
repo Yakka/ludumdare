@@ -11,7 +11,7 @@ public class Interest
 	
 	public Interest()
 	{
-		words = new HashSet();
+		words = new HashSet<String>();
 	}
 	
 	public Interest(InterestData idata)

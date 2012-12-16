@@ -1,7 +1,5 @@
 package spammer;
 
-import java.util.ArrayList;
-
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -13,12 +11,10 @@ import spammer.content.Sounds;
 
 import backend.GameComponent;
 import backend.MathHelper;
-import backend.Path;
 import backend.geom.Rectangle;
 
 public class Mail extends GameComponent {
 
-	private static final int NB_MAILS = 10; //Nombre d'e-mails affiches
 	private final float SPEED = 800.f; // pixels/second
 	private static Image sprite;
 	private static Vector2f startPos = new Vector2f(350, 500);
