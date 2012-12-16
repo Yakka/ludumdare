@@ -20,7 +20,8 @@ import backend.ui.Widget;
 
 public class GamePlay extends UIBasicGameState {
 	private static final int COEF_SCORE = 50;
-	private static final long END_TIME = 120; // seconds
+	//private static final long END_TIME = 120; // seconds
+	private static final long END_TIME = 5; // seconds
 	private static GamePlay instance;
 	
 	public static GamePlay get()
@@ -108,6 +109,9 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException 
 	{
 		timeBeforeEnd -= delta;
+		if(timeBeforeEnd <= 0){
+			sbg.enterState(MainGame.SCORES_SCREEN);
+		}
 				
 		gcm.updateAll(gc, sbg, delta);
 	}

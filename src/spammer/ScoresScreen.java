@@ -1,5 +1,6 @@
 package spammer;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -9,20 +10,24 @@ import backend.ui.UIBasicGameState;
 
 public class ScoresScreen extends UIBasicGameState
 {
+	private int score;
+	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException
 	{
-		// TODO Auto-generated method stub
-
+		score = GamePlay.get().getScore();
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException
 	{
-		// TODO Auto-generated method stub
-
+		g.setColor(Color.gray);
+		g.drawRect(0, 0, 800, 600);
+		g.setColor(Color.black);
+		g.drawString("Score: "+((Integer)score).toString(), 400, 300);
+		
 	}
 
 	@Override
@@ -44,8 +49,7 @@ public class ScoresScreen extends UIBasicGameState
 	@Override
 	public int getID()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
 
 }
