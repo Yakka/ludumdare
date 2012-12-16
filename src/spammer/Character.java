@@ -195,18 +195,20 @@ public class Character extends GameComponent
 		// TODO Auto-generated method stub
 	}
 
-	public void receiveMail(Mail mail)
+	public boolean receiveMail(Mail mail)
 	{
 		if(isInInterest(mail.getKeyWord()))
 		{
 			receiveSpam();
 			GamePlay.get().increaseScore(1);
 			GamePlay.get().fireWall.addSpecial(mail.getKeyWord());
+			return true;
 		}
 		else
 		{
 			receiveWrongMail();
 			GamePlay.get().fireWall.add(mail.getKeyWord());
+			return false;
 		}
 	}
 
