@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spammer.InterestData>
+  <words>
+    <string>cod</string>
+    <string>cod4</string>
+    <string>games</string>
+    <string>gamasutra</string>
+    <string>gamedev</string>
+    <string>e3</string>
+    <string>minecon</string>
+    <string>minecraft</string>
+    <string>pixels</string>
+    <string>indie</string>
+    <string>game</string>
+    <string>sega</string>
+    <string>nintendo</string>
+    <string>sony</string>
+    <string>mastersystem</string>
+    <string>jaguar</string>
+    <string>abandonware</string>
+    <string>spammer</string>
+    <string>ludumdare</string>
+    <string>jam</string>
+    <string>score</string>
+    <string>tekken</string>
+    <string>gamepad</string>
+    <string>steam</string>
+    <string>valve</string>
+    <string>portal</string>
+    <string>portal2</string>
+    <string>tf2</string>
+    <string>css</string>
+    <string>nvidia</string>
+    <string>pes</string>
+    <string>fifa</string>
+    <string>nfs</string>
+    <string>smb</string>
+    <string>mojang</string>
+    <string>crysis</string>
+    <string>crytek</string>
+    <string>ubisoft</string>
+    <string>rayman</string>
+    <string>mario</string>
+    <string>luigi</string>
+    <string>sonic</string>
+    <string>atari</string>
+    <string>play</string>
+    <string>jdg</string>
+    <string>mgs</string>
+    <string>kojima</string>
+    <string>wii</string>
+    <string>gameboy</string>
+    <string>gba</string>
+    <string>gbc</string>
+    <string>wiiu</string>
+    <string>playstation</string>
+    <string>ps2</string>
+    <string>ps3</string>
+  </words>
+  <expressions>
+    <string>Play ! play ! play ! play again !</string>
+    <string>Wow, this game has been made by ENJMIN students !</string>
+    <string>I wish I could afford the last Call of Duty...</string>
+  </expressions>
+</spammer.InterestData>
