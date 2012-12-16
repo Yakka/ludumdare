@@ -22,7 +22,7 @@ public class Avatar extends GameComponent {
 	private static Image bbTroll;
 	private static Animation bbCash;
 	private static Animation bbAngry;
-	private static State state = State.ANGRY;
+	private static State state = State.NOTHING;
 	
 	private static final long BUBBLE_TIME = 1000; //Temps d'affichage d'une bulle
 	private long remainingTime = 0;
@@ -51,6 +51,18 @@ public class Avatar extends GameComponent {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	//CHANGEMENTS d'ETATS
+	public void gettingTrolling(){
+	}
+	
+	public void gettingCash(){
+		
+	}
+	
+	public void gettingAngry(){
 		
 	}
 	
