@@ -35,7 +35,7 @@ public class GamePlay extends UIBasicGameState {
 	public GameComponentMap gcm;
 	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
 	private Music music;
-	private Avatar avatar;
+	public Avatar avatar;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -143,8 +143,9 @@ public class GamePlay extends UIBasicGameState {
 		if(word == "")
 			return;
 		
+		MailGroup g = new MailGroup(characters.size());
 		for (Character c : characters) {
-			gcm.stageComponent(new Mail(word, c.getIDCharacter()));
+			gcm.stageComponent(new Mail(word, c.getIDCharacter(), g));
 		}
 		
 		field.setText("");

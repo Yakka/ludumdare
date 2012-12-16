@@ -24,6 +24,7 @@ public class Mail extends GameComponent {
 	public static final int UNCHECKED = 0;
 	public static final int CHECKED = 1;
 	public static final int ARRIVED = 2;
+	public static final int BLOCKED = 3;
 
 	private Image img;
 	private float posX, posY;
@@ -32,8 +33,9 @@ public class Mail extends GameComponent {
 	private int destID;
 	private String keyWord;
 	private int state;
+	private MailGroup groupRef;
 
-	public Mail(String keyWord, int id)
+	public Mail(String keyWord, int id, MailGroup g)
 	{
 		if(sprite == null)
 		{
@@ -44,6 +46,7 @@ public class Mail extends GameComponent {
 			}
 		}
 		
+		groupRef = g;
 		this.keyWord = keyWord;
 		posX = startPos.x + MathHelper.randInt(-50, 50);
 		posY = startPos.y + MathHelper.randInt(-50, 50);
@@ -100,8 +103,15 @@ public class Mail extends GameComponent {
 				posY -= speed;
 			else
 			{
-				GamePlay.get().fireWall.checkMail(this);
-				state = CHECKED;
+				if(GamePlay.get().fireWall.checkMail(this))
+				{
+					dispose();
+					state = BLOCKED;
+					groupRef.remaining--;
+					groupRef.blockedCount++;
+				}
+				else
+					state = CHECKED;
 			}
 		}
 		else if(state == CHECKED)
@@ -114,8 +124,15 @@ public class Mail extends GameComponent {
 			{
 				state = ARRIVED;
 				// destID should be valid
-				GamePlay.get().characters.get(destID).receiveMail(this);
+				groupRef.remaining--;
+				if(GamePlay.get().characters.get(destID).receiveMail(this))
+					groupRef.spammedCount++;
 			}
+		}
+
+		if(groupRef.remaining == 0)
+		{
+			groupRef.notifyAvatar();
 		}
 	}
 

@@ -93,18 +93,15 @@ public class FireWall extends GameComponent {
 
 	}
 
-	/**
-	 * Tests if the mail may pass or not.
-	 * Destroys the mail if it is assumed evil.
-	 * @param mail
-	 */
-	public void checkMail(Mail mail)
+	public boolean checkMail(Mail mail)
 	{
 		if(contains(mail.getKeyWord()))
 		{
-			mail.dispose(); // destroy the mail
+			return true;
 			// TODO play fire animation
 		}
+		else
+			return false;
 	}
 
 }
