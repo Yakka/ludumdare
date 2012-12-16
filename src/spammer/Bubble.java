@@ -24,6 +24,7 @@ public class Bubble extends GameComponent {
 	private Image img;
 	private boolean visible;
 	private Text textBubble;
+	private boolean textOn;
 	
 	public Bubble(int id){
 		this.x = X_BY_ID[id];
@@ -36,7 +37,7 @@ public class Bubble extends GameComponent {
 		}catch(SlickException e){
 			e.printStackTrace();
 		}
-		visible = false;
+		visible = textOn = false;
 		
 	}
 	
@@ -48,11 +49,16 @@ public class Bubble extends GameComponent {
 		textBubble.setFromString(s);
 	}
 	
+	public void setTextOn(boolean b){
+		textOn = b;
+	}
+	
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		if(isVisible()){
 			img.draw(x, y);
-			gfx.setFont(SpammerTheme.font);
+			if(textOn)
+				gfx.setFont(SpammerTheme.font);
 			textBubble.render(gfx, x+5, y+2);
 		}
 	}

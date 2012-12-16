@@ -108,22 +108,20 @@ public class Character extends GameComponent
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
+		img.draw(x, y);
+		bubble.render(gc, game, gfx);
 		switch(state){
 		case NOTHING:
-			img.draw(x, y);
 			break;
 		case SPEAKING:
-			img.draw(x, y);
 			break;
 		case DAFUQ:
-			dafuq.draw(x, y);
+			dafuq.draw(x+25, y-100);
 			break;
 		case SPAMMED:
-			spam.draw(x, y);
+			spam.draw(x+25, y-100);
 			break;
 		}
-		
-		bubble.render(gc, game, gfx);
 	}
 
 	@Override
@@ -149,6 +147,7 @@ public class Character extends GameComponent
 		switch(state){
 		case NOTHING:
 			bubble.setVisible(false);
+			bubble.setTextOn(false);
 			lastSpeak += delta;
 			if(lastSpeak >= SPEAK_PERIOD){
 				lastSpeak = 0;
@@ -161,6 +160,7 @@ public class Character extends GameComponent
 			break;
 		case SPEAKING:
 			bubble.setVisible(true);
+			bubble.setTextOn(true);
 			remainingSpeech -= delta;
 			if(remainingSpeech <= 0)
 				nextState = State.NOTHING;
@@ -169,6 +169,7 @@ public class Character extends GameComponent
 			break;
 		case DAFUQ:
 			remainingDafuq -= delta;
+			bubble.setTextOn(false);
 			bubble.setVisible(true);
 			if(remainingDafuq <= 0)
 				nextState = State.NOTHING;
@@ -177,6 +178,7 @@ public class Character extends GameComponent
 			break;
 		case SPAMMED:
 			remainingSpammed -= delta;
+			bubble.setTextOn(false);
 			bubble.setVisible(true);
 			if(remainingSpammed <= 0)
 				nextState = State.NOTHING;
