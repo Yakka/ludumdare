@@ -3,6 +3,19 @@
   <words>
     <string>chocolate</string>
     <string>cake</string>
+    <string>cakes</string>
+    <string>mcdonalds</string>
+    <string>apple</string>
+    <string>bread</string>
+    <string>sandwich</string>
+    <string>sandwiches</string>
+    <string>banana</string>
+    <string>cookie</string>
+    <string>cookies</string>
+    <string>mars</string>
+    <string>bounty</string>
+    <string>eat</string>
+    <string>food</string>
   </words>
   <expressions>
     <string>I like cooking !</string>

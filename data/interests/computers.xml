@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spammer.InterestData>
+  <words>
+    <string>computer</string>
+    <string>computers</string>
+    <string>cpu</string>
+    <string>ram</string>
+    <string>bios</string>
+    <string>microsoft</string>
+    <string>apple</string>
+    <string>mac</string>
+    <string>mouse</string>
+    <string>bit</string>
+    <string>bits</string>
+    <string>byte</string>
+    <string>bytes</string>
+  </words>
+  <expressions>
+    <string>I like computers :)</string>
+    <string>My CPU is over 1000Hz !</string>
+  </expressions>
+</spammer.InterestData>
