@@ -4,6 +4,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
@@ -15,8 +16,8 @@ public class Character extends GameComponent
 	private static int NB_CHAR = 0;
 	
 	private static final int TIME_SPEECH = 5000; //Temps de l'etat
-	private static final int TIME_DAFUQ = 1000; 
-	private static final int TIME_SPAMMED = 1000; 
+	private static final int TIME_DAFUQ = 2000; 
+	private static final int TIME_SPAMMED = 2000; 
 	private static final int SPEAK_PERIOD = 15000; //Temps entre 2 bulles
 	
 	public static final int WIDTH = 118;
@@ -43,7 +44,8 @@ public class Character extends GameComponent
 	private Bubble bubble;
 	
 	private CharacterProfile profile;
-	private Image img, dafuq, spam;
+	private Image dafuq, spam;
+	private SpriteSheet img;
 	private int x, y;
 	
 	public Character()
@@ -53,7 +55,7 @@ public class Character extends GameComponent
 		NB_CHAR ++;
 		lastSpeak = 5000 + MathHelper.randInt(0, 10000);
 		try {
-			img = new Image(IMAGE_BY_ID[id]);
+			img = new SpriteSheet(new Image(IMAGE_BY_ID[id]), 100, 175);
 			dafuq = new Image("assets/character_dafuq.png");
 			spam = new Image("assets/character_spam.png");
 		} catch (SlickException e) {
@@ -88,12 +90,16 @@ public class Character extends GameComponent
 		state = State.SPAMMED;
 		initEveryTimes();
 		remainingSpammed = TIME_SPAMMED;
+		bubble.setVisible(true);
+		bubble.setTextOn(false);
 	}
 	
 	public void receiveWrongMail(){
 		state = State.DAFUQ;
 		initEveryTimes();
 		remainingDafuq = TIME_DAFUQ;
+		bubble.setVisible(true);
+		bubble.setTextOn(false);
 	}
 	
 	private void initEveryTimes(){
@@ -108,17 +114,20 @@ public class Character extends GameComponent
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		img.draw(x, y);
 		bubble.render(gc, game, gfx);
 		switch(state){
 		case NOTHING:
+			img.getSubImage(0, 0).draw(x, y);
 			break;
 		case SPEAKING:
+			img.getSubImage(0, 0).draw(x, y);
 			break;
 		case DAFUQ:
+			img.getSubImage(1, 0).draw(x, y);
 			dafuq.draw(x+25, y-100);
 			break;
 		case SPAMMED:
+			img.getSubImage(2, 0).draw(x, y);
 			spam.draw(x+25, y-100);
 			break;
 		}
@@ -183,7 +192,7 @@ public class Character extends GameComponent
 			if(remainingSpammed <= 0)
 				nextState = State.NOTHING;
 			else
-				nextState = State.DAFUQ;
+				nextState = State.SPAMMED;
 			break;
 		}
 		state = nextState;

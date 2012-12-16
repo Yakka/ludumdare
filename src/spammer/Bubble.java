@@ -57,9 +57,10 @@ public class Bubble extends GameComponent {
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
 		if(isVisible()){
 			img.draw(x, y);
-			if(textOn)
+			if(textOn){
 				gfx.setFont(SpammerTheme.font);
-			textBubble.render(gfx, x+5, y+2);
+				textBubble.render(gfx, x+5, y+2);
+			}
 		}
 	}
 
