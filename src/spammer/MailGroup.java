@@ -18,15 +18,12 @@ public class MailGroup
 	{
 		if(!notified)
 		{
-			System.out.println(blockedCount + ", " + spammedCount);
 			if(blockedCount > spammedCount)
 			{
-				System.out.println("angry");
 				GamePlay.get().avatar.gettingAngry();
 			}
 			else if(spammedCount > blockedCount)
 			{
-				System.out.println("cash");
 				GamePlay.get().avatar.gettingCash();
 			}
 			notified = true;

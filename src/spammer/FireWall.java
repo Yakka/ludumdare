@@ -2,9 +2,12 @@ package spammer;
 
 import java.util.HashSet;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
@@ -14,13 +17,28 @@ import backend.geom.Vector2i;
 public class FireWall extends GameComponent {
 
 	public static final float BLOCK_LINE_Y = 450;
+	private static Animation bumpEffect;
 	
 	private HashSet<String> words;
 	private HashSet<String> specialWords;
 	public Vector2i pos;
 	public Vector2i size;
 
-	public FireWall() {
+	public FireWall()
+	{
+		if(bumpEffect == null)
+		{
+			try {
+				SpriteSheet img = new SpriteSheet("assets/firewall_explosion.png", 620, 64);
+				// Note : vertical anim should work if there is only one sprite by row
+				bumpEffect = new Animation(img, 100);
+				bumpEffect.setLooping(false);
+				bumpEffect.stop();
+			} catch (SlickException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		words = new HashSet<String>();
 		specialWords = new HashSet<String>();
 		pos = new Vector2i(620, 0);
@@ -63,6 +81,11 @@ public class FireWall extends GameComponent {
 			i++;
 			gfx.drawString(s, 645, 25 + i * 20);
 		}
+		
+		if(!bumpEffect.isStopped())
+		{
+			gfx.drawAnimation(bumpEffect, 0, BLOCK_LINE_Y - 32);
+		}
 	}
 
 	@Override
@@ -97,8 +120,9 @@ public class FireWall extends GameComponent {
 	{
 		if(contains(mail.getKeyWord()))
 		{
+			// Fire animation
+			bumpEffect.restart();
 			return true;
-			// TODO play fire animation
 		}
 		else
 			return false;

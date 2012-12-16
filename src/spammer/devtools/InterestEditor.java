@@ -8,6 +8,7 @@ import org.newdawn.slick.SlickException;
 import backend.XMLTools;
 
 import spammer.Interest;
+import spammer.InterestData;
 import spammer.MainGame;
 
 public class InterestEditor
@@ -45,6 +46,8 @@ public class InterestEditor
 			else
 				word(str);
 		}
+		
+		System.out.println("bye !");
 	}
 	
 	private void command(String cmd)
@@ -67,7 +70,7 @@ public class InterestEditor
 	{
 		if(filename.isEmpty())
 			return false;		
-		return XMLTools.encodeToFile(interest, filename);
+		return XMLTools.encodeToFile(interest.getData(), filename);
 	}
 	
 	private void commandOpen()
@@ -81,7 +84,7 @@ public class InterestEditor
 		{
 			if(!filename.isEmpty())
 				save();
-			interest = (Interest)obj;
+			interest = new Interest((InterestData)obj);
 			filename = newFilename;
 			System.out.println("file opened.");
 		}
@@ -110,7 +113,7 @@ public class InterestEditor
 				saveFilename += ".xml";
 		}
 		
-		if(XMLTools.encodeToFile(interest, saveFilename))
+		if(XMLTools.encodeToFile(interest.getData(), saveFilename))
 		{
 			filename = saveFilename;
 			System.out.println("file saved as " + filename + ".");

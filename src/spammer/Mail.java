@@ -126,7 +126,12 @@ public class Mail extends GameComponent {
 				// destID should be valid
 				groupRef.remaining--;
 				if(GamePlay.get().characters.get(destID).receiveMail(this))
+				{
 					groupRef.spammedCount++;
+					GamePlay.get().gcm.stageComponent(
+						new MailParticleSpawner(posX, posY));
+				}
+				dispose();
 			}
 		}
 

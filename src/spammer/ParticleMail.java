@@ -27,7 +27,7 @@ public class ParticleMail extends Particle
 		}
 		
 		sprite = mailSprite;
-		vel = new Vector2f(-(float)90.f + MathHelper.randS(30.f));
+		vel = new Vector2f(70.f + MathHelper.randS(30.f));
 		vel.scale(SPEED);
 		rotation = MathHelper.randS(180);
 		rotVel = MathHelper.randS(180);

@@ -18,6 +18,7 @@ public class MailParticleSpawner extends GameComponent
 	public MailParticleSpawner(float x, float y)
 	{
 		pos = new Vector2f(x, y);
+		remainingTime = DURATION;
 	}
 	
 	@Override
