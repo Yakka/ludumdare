@@ -110,7 +110,7 @@ public class Character extends GameComponent
 		if(lastSpeak >= SPEAK_PERIOD){
 			lastSpeak = 0;
 			bubble.setText(profile.getRandomExpression());
-			remainingSpeech = TIME_SPEECH + MathHelper.randInt(0, 2000);;
+			remainingSpeech = TIME_SPEECH + MathHelper.randInt(0, 2000);
 		}
 		
 		bubble.update(gc, game, delta);

@@ -11,7 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import backend.GameComponentMap;
 import backend.geom.Rectangle;
 import backend.ui.IActionListener;
-import backend.ui.PushButton;
 import backend.ui.RootPane;
 import backend.ui.UIBasicGameState;
 import backend.ui.Widget;

@@ -7,25 +7,30 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import backend.GameComponent;
+import backend.MathHelper;
 import backend.geom.Rectangle;
 
 public class Mail extends GameComponent {
 
-	private final float speed = 1;
+	private static final int NB_MAILS = 10; //Nombre d'e-mails affiches
+	
+	private final float SPEED = 0.5f;
 	private Image img;
 	private int x, y;
+	private int rot;
 	private int destX, destY;
 
 	public Mail(int id)
 	{
 		try {
-			img = new Image("assets/mail.png");
+			img = new Image("assets/mail_small.png");
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		x = 500;
-		y = 500;
+		x = 500 + MathHelper.randInt(-50, 50);
+		y = 500 + MathHelper.randInt(-50, 50);
+		rot = MathHelper.randInt(0, 359);
 		if(id >= 0){
 			destX = Character.X_BY_ID[id];
 			destY = Character.Y_BY_ID[id];
@@ -38,7 +43,12 @@ public class Mail extends GameComponent {
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame game, Graphics gfx) {
-		img.draw(x, y);
+		
+		gfx.pushTransform();
+		gfx.translate(x, y);
+		gfx.rotate(5, 4, rot);
+		gfx.drawImage(img, 0, 0);
+		gfx.popTransform();
 
 	}
 
@@ -50,7 +60,6 @@ public class Mail extends GameComponent {
 
 	@Override
 	public int getDrawOrder() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -62,7 +71,7 @@ public class Mail extends GameComponent {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame game, int delta) {
-		float deltaSpeed = speed * delta;
+		float deltaSpeed = SPEED * delta;
 		if (x < destX) {
 			x += deltaSpeed;
 			if (x > destX)
