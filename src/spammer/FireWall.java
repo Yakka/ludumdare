@@ -75,21 +75,25 @@ public class FireWall extends GameComponent {
 		int i = 0;
 		gfx.setColor(Color.red);
 		for (String s : specialWords) {
+			String str = "";
 			i++;
-			if(s.length() > 18)
-				s=s.substring(0, 15)+"...";
+			str += s;
+			if(str.length() > 18)
+				str = s.substring(0, 15)+"...";
 			if(i < 28)
-				gfx.drawString(s, 645, 25 + i * 20);
+				gfx.drawString(str, 645, 25 + i * 20);
 			else
 				break;
 		}
 		gfx.setColor(Color.black);
 		for (String s : words) {
+			String str = "";
 			i++;
-			if(s.length() > 18)
-				s=s.substring(0, 15)+"...";
+			str += s;
+			if(str.length() > 18)
+				str = s.substring(0, 15)+"...";
 			if(i < 28)
-				gfx.drawString(s, 645, 25 + i * 20);
+				gfx.drawString(str, 645, 25 + i * 20);
 			else
 				break;
 		}

@@ -39,6 +39,10 @@ public class GamePlay extends UIBasicGameState {
 	private Music music;
 	public Avatar avatar;
 
+	public int getScore(){
+		return score;
+	}
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
 			throws SlickException {
