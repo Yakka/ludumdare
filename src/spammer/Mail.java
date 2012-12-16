@@ -30,7 +30,7 @@ public class Mail extends GameComponent {
 		}
 		x = 500 + MathHelper.randInt(-50, 50);
 		y = 500 + MathHelper.randInt(-50, 50);
-		rot = MathHelper.randInt(0, 359);
+		rot = MathHelper.randInt(-45, 45);
 		if(id >= 0){
 			destX = Character.X_BY_ID[id];
 			destY = Character.Y_BY_ID[id];
