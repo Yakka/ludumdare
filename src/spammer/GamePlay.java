@@ -35,6 +35,7 @@ public class GamePlay extends UIBasicGameState {
 	public GameComponentMap gcm;
 	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
 	private Music music;
+	private Avatar avatar;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame stg)
@@ -68,6 +69,8 @@ public class GamePlay extends UIBasicGameState {
 		gcm.stageComponent(c2);
 		gcm.stageComponent(c3);
 		gcm.stageComponent(c4);
+		avatar = new Avatar();
+		gcm.stageComponent(avatar);
 		
 		timeBeforeEnd = END_TIME * 1000;
 		
