@@ -7,6 +7,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.StateBasedGame;
 
+import spammer.content.Sounds;
+
 import backend.GameComponent;
 import backend.MathHelper;
 import backend.geom.Rectangle;
@@ -209,6 +211,7 @@ public class Character extends GameComponent
 		if(isInInterest(mail.getKeyWord()))
 		{
 			receiveSpam();
+			Sounds.get().play("spam", 1, 0.6f);
 			GamePlay.get().increaseScore(1);
 			GamePlay.get().fireWall.addSpecial(mail.getKeyWord());
 			return true;
@@ -216,6 +219,7 @@ public class Character extends GameComponent
 		else
 		{
 			receiveWrongMail();
+			Sounds.get().play("dafuq", 1, 0.15f);
 			GamePlay.get().fireWall.add(mail.getKeyWord());
 			return false;
 		}

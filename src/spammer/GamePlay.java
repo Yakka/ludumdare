@@ -9,6 +9,8 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import spammer.content.Sounds;
+
 import backend.GameComponentMap;
 import backend.geom.Rectangle;
 import backend.ui.IActionListener;
@@ -147,6 +149,8 @@ public class GamePlay extends UIBasicGameState {
 		for (Character c : characters) {
 			gcm.stageComponent(new Mail(word, c.getIDCharacter(), g));
 		}
+		
+		Sounds.get().play("send", 1, 0.5f);
 		
 		field.setText("");
 	}

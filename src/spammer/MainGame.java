@@ -7,6 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 
+import spammer.content.Sounds;
 import spammer.devtools.InterestEditor;
 
 import backend.MathHelper;
@@ -48,6 +49,7 @@ public class MainGame extends UIStateBasedGame
 
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
+		Sounds.get().load();
 		SpammerTheme sTheme = new SpammerTheme();
 		SpammerTheme.load();
 		UIRenderer.setTheme(sTheme);

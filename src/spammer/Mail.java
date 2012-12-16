@@ -9,6 +9,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
+import spammer.content.Sounds;
+
 import backend.GameComponent;
 import backend.MathHelper;
 import backend.Path;
@@ -105,6 +107,7 @@ public class Mail extends GameComponent {
 			{
 				if(GamePlay.get().fireWall.checkMail(this))
 				{
+					Sounds.get().play("firewall", MathHelper.randFloat(0.9f, 1.1f), 0.5f);
 					dispose();
 					state = BLOCKED;
 					groupRef.remaining--;

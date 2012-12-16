@@ -1,5 +1,7 @@
 package spammer;
 
+import spammer.content.Sounds;
+
 public class MailGroup
 {
 	public int initialCount;
@@ -24,8 +26,10 @@ public class MailGroup
 			}
 			else if(spammedCount > blockedCount)
 			{
+				Sounds.get().play("spam", 1, 0.5f);
 				GamePlay.get().avatar.gettingCash();
 			}
+			
 			notified = true;
 		}
 	}
