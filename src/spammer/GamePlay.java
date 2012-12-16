@@ -27,7 +27,7 @@ public class GamePlay extends UIBasicGameState {
 			instance = new GamePlay();
 		return instance;
 	}
-	
+
 	public ArrayList<Character> characters;
 	public FireWall fireWall;
 	private int score = 0;
@@ -160,7 +160,6 @@ public class GamePlay extends UIBasicGameState {
 				fireWall.add(word);
 			}
 		}
-		
 		
 		field.setText("");
 	}
