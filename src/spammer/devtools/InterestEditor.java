@@ -2,16 +2,27 @@ package spammer.devtools;
 
 import java.util.Scanner;
 
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.SlickException;
+
 import backend.XMLTools;
 
 import spammer.Interest;
+import spammer.MainGame;
 
 public class InterestEditor
 {
+	private final String ROOT_DIR = "data/interests/";
 	private String filename = "";
 	private Interest interest = new Interest();
 	private Scanner scan = new Scanner(System.in);
 	private boolean running;
+	
+	public static void main(String[] args) {
+		
+		(new InterestEditor()).run();
+
+	}
 	
 	public void run()
 	{
@@ -62,7 +73,7 @@ public class InterestEditor
 	private void commandOpen()
 	{
 		System.out.print("filename: ");
-		String newFilename = scan.nextLine();
+		String newFilename = ROOT_DIR+scan.nextLine();
 		if(!newFilename.endsWith(".xml"))
 			newFilename += ".xml";
 		Object obj = XMLTools.decodeFromFile(newFilename);
@@ -94,7 +105,7 @@ public class InterestEditor
 		if(saveFilename.isEmpty())
 		{
 			System.out.print("filename: ");
-			saveFilename = scan.nextLine();
+			saveFilename = ROOT_DIR+scan.nextLine();
 			if(!saveFilename.endsWith(".xml"))
 				saveFilename += ".xml";
 		}
