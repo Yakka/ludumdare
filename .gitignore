@@ -1,5 +1,8 @@
-bin/*
-libs/*
-natives/*
+bin/
+libs/
+natives/
+releases/
+txt/
 .project
 .classpath
+*.jar

@@ -42,14 +42,6 @@ public class IntroScreen extends UIBasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
 			Graphics gfx) throws SlickException {
-		gfx.setColor(Color.green);
-		gfx.pushTransform();
-		float t = (float) (System.currentTimeMillis() % 1000) / 10.f;
-		gfx.translate(50, 50);
-		gfx.rotate(0, 0, t);
-		gfx.fillRect(0, 0, 100, 50);
-		gfx.popTransform();
-
 		if (imageIndex < images.length) {
 			Image i = images[imageIndex];
 			if (images[imageIndex] != null) {
