@@ -41,6 +41,7 @@
     <string>ios</string>
     <string>android</string>
     <string>google</string>
+	<string>windows</string>
   </words>
   <expressions>
     <string>I&apos;m so geek! I spend all my time playing on facebook 0.o</string>

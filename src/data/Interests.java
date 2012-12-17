@@ -432,6 +432,7 @@ public class Interests
 		"garment\n" +
 		"tog\n" +
 		"cloak\n" +
+		"jewelry\n" +
 		"bikini\n" +
 		"trouser\n" +
 		"hat\n" +
@@ -454,7 +455,8 @@ public class Interests
 		"dress\n" +
 		"raiment\n" +
 		"string\n" +
-		"tailoring\n",
+		"tailoring\n" +
+		"shopping\n",
 
 		"I'm so geek! I spend all my time playing on facebook 0.o\n" +
 		"I want to marry my computer T_T\n" +
@@ -487,6 +489,7 @@ public class Interests
 		"c\n" +
 		"fps\n" +
 		"cpu\n" +
+		"windows\n" +
 		"web\n" +
 		"game\n" +
 		"code\n" +
@@ -506,16 +509,28 @@ public class Interests
 		"I like Mozart, really, but Justin Bieber is so much better !\n" +
 		"I like books, but only the ones with illustrations.\n" +
 		"#\n" +
+		"concert\n" +
+		"reggae\n" +
+		"illustration\n" +
+		"hardrock\n" +
+		"videogame\n" +
 		"rap\n" +
+		"pop\n" +
 		"rock\n" +
+		"bluray\n" +
 		"metal\n" +
+		"hardcore\n" +
 		"indie\n" +
+		"vinyl\n" +
 		"opera\n" +
-		"videogames\n" +
+		"litterature\n" +
 		"painting\n" +
+		"trance\n" +
 		"film\n" +
 		"music\n" +
+		"hipster\n" +
 		"books\n" +
+		"dvd\n" +
 		"art\n" +
 		"jazz\n" +
 		"play\n" +
@@ -531,6 +546,7 @@ public class Interests
 		"underground\n" +
 		"comics\n" +
 		"dance\n" +
+		"cd\n" +
 		"electro\n",
 
 		"What's the best between chocolate pizza and vanilla burgerz??\n" +
@@ -735,6 +751,7 @@ public class Interests
 		"rabbit\n" +
 		"cat\n" +
 		"mouse\n" +
+		"elephant\n" +
 		"fish\n" +
 		"donkey\n" +
 		"horse\n" +
@@ -851,6 +868,35 @@ public class Interests
 		"cunnilingus\n" +
 		"tits\n" +
 		"x\n",
+
+		"Wikipedia is the best invention.EVER.\n" +
+		"I'd like to know everything !\n" +
+		"When I was a kid, I used to like school.\n" +
+		"#\n" +
+		"computer\n" +
+		"university\n" +
+		"knowledge\n" +
+		"erudition\n" +
+		"physics\n" +
+		"philosophy\n" +
+		"maths\n" +
+		"learn\n" +
+		"mark\n" +
+		"teach\n" +
+		"science\n" +
+		"grammar\n" +
+		"history\n" +
+		"school\n" +
+		"geography\n" +
+		"chemistry\n" +
+		"enjmin\n" +
+		"book\n" +
+		"grade\n" +
+		"litterature\n" +
+		"language\n" +
+		"exam\n" +
+		"biology\n" +
+		"competition\n",
 
 		"I love sport! I mean, I love to watch sport.\n" +
 		"I'm so strong, so sexy ;D\n" +

@@ -31,6 +31,8 @@
     <string>cloak</string>
     <string>string</string>
     <string>cap</string>
+	<string>shopping</string>
+	<string>jewelry</string>
   </words>
   <expressions>
   	<string>I want 2 change all my wardrobe... =)</string>

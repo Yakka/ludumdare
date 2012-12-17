@@ -5,7 +5,6 @@
     <string>metal</string>
     <string>indie</string>
     <string>opera</string>
-    <string>videogames</string>
     <string>painting</string>
     <string>music</string>
     <string>film</string>
@@ -17,6 +16,7 @@
     <string>classical</string>
     <string>cinema</string>
     <string>contemporary</string>
+	<string>litterature</string>
     <string>tv</string>
     <string>theatre</string>
     <string>book</string>
@@ -26,6 +26,19 @@
     <string>dance</string>
     <string>electro</string>
 	<string>nyancat</string>
+	<string>concert</string>
+	<string>pop</string>
+	<string>trance</string>
+	<string>videogame</string>
+	<string>hipster</string>
+	<string>reggae</string>
+	<string>hardcore</string>
+	<string>hardrock</string>
+	<string>dvd</string>
+	<string>bluray</string>
+	<string>cd</string>
+	<string>vinyl</string>
+	<string>illustration</string>
   </words>
   <expressions>
     <string>Have you seen the last Twilight movie ? I love it :&apos;3</string>

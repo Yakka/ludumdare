@@ -1,0 +1,33 @@
+<spammer.InterestData>
+  <words>
+    <string>competition</string>
+	<string>knowledge</string>
+	<string>history</string>
+	<string>geography</string>
+	<string>maths</string>
+	<string>science</string>
+	<string>chemistry</string>
+	<string>physics</string>
+	<string>computer</string>
+	<string>litterature</string>
+	<string>philosophy</string>
+	<string>language</string>
+	<string>grammar</string>
+	<string>erudition</string>
+	<string>school</string>
+	<string>learn</string>
+	<string>teach</string>
+	<string>book</string>
+	<string>exam</string>
+	<string>grade</string>
+	<string>biology</string>
+	<string>mark</string>
+	<string>university</string>
+	<string>enjmin</string>
+  </words>
+  <expressions>
+    <string>Wikipedia is the best invention.EVER.</string>
+    <string>I'd like to know everything !</string>
+    <string>When I was a kid, I used to like school.</string>
+  </expressions>
+</spammer.InterestData>
