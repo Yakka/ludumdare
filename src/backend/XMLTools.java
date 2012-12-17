@@ -73,6 +73,14 @@ public class XMLTools
 		object = xstream.fromXML(is);
 		return object;
 	}
+	
+	public static Object decodeFromString(String str)
+	{
+		Object object = null;
+		XStream xstream = new XStream(new DomDriver());
+		object = xstream.fromXML(str);
+		return object;
+	}
 
 }
 

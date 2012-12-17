@@ -1,49 +1,92 @@
 <spammer.InterestData>
   <words>
-    <string>rabbit</string>
-    <string>mushroom</string>
+    <string>salad</string>
     <string>burger</string>
     <string>blueberry</string>
+    <string>grill</string>
+    <string>save</string>
     <string>tomato</string>
-    <string>frog</string>
     <string>fish</string>
     <string>beef</string>
+    <string>candies</string>
+    <string>fried</string>
     <string>mcdonalds</string>
+    <string>egg</string>
     <string>honey</string>
-    <string>bounty</string>
+    <string>beer</string>
+    <string>candy</string>
     <string>milk</string>
     <string>bread</string>
-    <string>meat</string>
+    <string>drink</string>
+    <string>lunch</string>
     <string>jam</string>
-    <string>cookies</string>
-    <string>meal</string>
-    <string>cake</string>
+    <string>icecream</string>
+    <string>dessert</string>
     <string>orange</string>
+    <string>cake</string>
+    <string>sour</string>
     <string>fruit</string>
-    <string>rice</string>
-    <string>lamb</string>
-    <string>sauce</string>
-    <string>pig</string>
+    <string>coffee</string>
+    <string>toast</string>
+    <string>pasta</string>
+    <string>strawberry</string>
+    <string>hamburger</string>
+    <string>cream</string>
     <string>cookie</string>
-    <string>banana</string>
-    <string>chocolate</string>
-    <string>skittles</string>
-    <string>sandwich</string>
+    <string>eggs</string>
+    <string>sweet</string>
+    <string>mars</string>
     <string>apple</string>
     <string>food</string>
     <string>pizza</string>
     <string>pork</string>
+    <string>chedar</string>
+    <string>bitter</string>
     <string>eat</string>
     <string>snail</string>
     <string>vegetable</string>
-    <string>cheeseburger</string>
-    <string>hamburger</string>
-    <string>pie</string>
-    <string>pasta</string>
+    <string>salt</string>
+    <string>salty</string>
+    <string>rabbit</string>
+    <string>mushroom</string>
+    <string>crunch</string>
+    <string>frog</string>
+    <string>breakfast</string>
+    <string>bake</string>
+    <string>nem</string>
+    <string>potatoes</string>
+    <string>pepper</string>
     <string>cheese</string>
+    <string>restaurant</string>
+    <string>bounty</string>
+    <string>ice</string>
+    <string>meat</string>
+    <string>fudge</string>
+    <string>cocktail</string>
+    <string>mayo</string>
+    <string>cheeseburger</string>
+    <string>cookies</string>
+    <string>onion</string>
+    <string>meal</string>
+    <string>caramel</string>
+    <string>chips</string>
+    <string>snickers</string>
+    <string>cupcake</string>
+    <string>rice</string>
+    <string>skittles</string>
+    <string>lamb</string>
+    <string>pie</string>
+    <string>sauce</string>
+    <string>pig</string>
+    <string>banana</string>
+    <string>chocolate</string>
+    <string>fries</string>
+    <string>sandwich</string>
+    <string>potato</string>
+    <string>sugar</string>
   </words>
   <expressions>
-    <string>What's the best between chocolate pizza and vanilla burgerz??</string>
+    <string>What&apos;s the best between chocolate pizza and vanilla burgerz??</string>
     <string>I&apos;m SO hungry x_x</string>
     <string>I want to cook the best cake ever! &lt;3</string>
   </expressions>

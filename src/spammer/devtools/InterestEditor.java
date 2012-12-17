@@ -13,7 +13,7 @@ import spammer.MainGame;
 
 public class InterestEditor
 {
-	private final String ROOT_DIR = "data/interests/";
+	private final String ROOT_DIR = "src/data/interests/";
 	private String filename = "";
 	private Interest interest = new Interest();
 	private Scanner scan = new Scanner(System.in);
