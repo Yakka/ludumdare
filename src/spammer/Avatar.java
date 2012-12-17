@@ -45,7 +45,7 @@ public class Avatar extends GameComponent {
 			if(bbAngry == null)
 				bbAngry = new Animation(
 							new SpriteSheet(
-								new Image("assets/bad_guy_Angry.png"), 
+								new Image("assets/bad_guy_angry.png"), 
 								42, 39), 
 							100);
 		} catch (SlickException e) {

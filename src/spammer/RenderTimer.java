@@ -20,13 +20,11 @@ public class RenderTimer
        
        if(seconds < 60)
        {
-           if(seconds < 10)
-               gfx.setColor(Color.orange);
-           else
-               gfx.setColor(Color.yellow);
+           if(seconds < 20)
+               gfx.setColor(Color.red);
        }
        else
-           gfx.setColor(new Color(192, 255, 192));
+           gfx.setColor(Color.black);
        
 //       gfx.setFont(Fonts.global48);
        
@@ -38,7 +36,7 @@ public class RenderTimer
        gfx.pushTransform();
        gfx.translate(
                460,
-               15);
+               10);
        
        gfx.drawString(mStr, 0, 0);        gfx.translate(dw * mStr.length(), 0);
        gfx.drawString(sep, 0, 0);        gfx.translate(sepw, 0);

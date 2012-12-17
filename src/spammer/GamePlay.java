@@ -7,6 +7,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.state.StateBasedGame;
 
 import spammer.content.Sounds;
@@ -21,7 +22,7 @@ import backend.ui.Widget;
 public class GamePlay extends UIBasicGameState {
 	private static final int COEF_SCORE = 50;
 	//private static final long END_TIME = 120; // seconds
-	private static final long END_TIME = 5; // seconds
+	private static final long END_TIME = 120; // seconds
 	private static GamePlay instance;
 	
 	public static GamePlay get()
@@ -33,12 +34,13 @@ public class GamePlay extends UIBasicGameState {
 
 	public ArrayList<Character> characters;
 	public FireWall fireWall;
-	private int score = 0;
+	private int score;
 	private long timeBeforeEnd; // milliseconds
 	public GameComponentMap gcm;
-	private Image scoreUI, fieldUI, timeUI, firewallUI, logo; //UI
+	private Image scoreUI, fieldUI, timeUI, firewallUI; //UI
 	private Music music;
 	public Avatar avatar;
+	private Image background;
 
 	public int getScore(){
 		return score;
@@ -48,12 +50,14 @@ public class GamePlay extends UIBasicGameState {
 	public void init(GameContainer gc, StateBasedGame stg)
 			throws SlickException {
 		//UI
-		scoreUI = new Image("assets/score.jpg");
+		System.out.println("Loading gameplay assets...");
+		scoreUI = new Image("assets/score.png");
 		fieldUI = new Image("assets/enter_field.png");
-		timeUI = new Image("assets/time.jpg");
-		firewallUI = new Image("assets/blacklist_bg.jpg");
+		timeUI = new Image("assets/time.png");
+		firewallUI = new Image("assets/blacklist_bg.png");
 		music = new Music("assets/music/spammer_v1.ogg", true);
-		logo = new Image("assets/logo.png");
+		background = new Image("assets/screen_game.png");
+		System.out.println("Done");
 	}
 
 	@Override
@@ -61,29 +65,40 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException {
 		super.enter(container, game);
 		
-		characters = new ArrayList<Character>();
-		Character c1 = new Character();
-		Character c2 = new Character();
-		Character c3 = new Character();
-		Character c4 = new Character();
-		characters.add(c1);
-		characters.add(c2);
-		characters.add(c3);
-		characters.add(c4);
-		fireWall = new FireWall();
-		gcm = new GameComponentMap();
-		gcm.stageComponent(fireWall);
-		gcm.stageComponent(c1);
-		gcm.stageComponent(c2);
-		gcm.stageComponent(c3);
-		gcm.stageComponent(c4);
-		avatar = new Avatar();
-		gcm.stageComponent(avatar);
-		
-		timeBeforeEnd = END_TIME * 1000;
-		
-		//container.setMusicOn(false);
-		music.play(1, 0.2f);
+		try
+		{
+			System.out.println("Entering gameplay...");
+			characters = new ArrayList<Character>();
+			Character c1 = new Character(0);
+			Character c2 = new Character(1);
+			Character c3 = new Character(2);
+			Character c4 = new Character(3);
+			characters.add(c1);
+			characters.add(c2);
+			characters.add(c3);
+			characters.add(c4);
+			fireWall = new FireWall();
+	
+			gcm = new GameComponentMap();
+			gcm.stageComponent(fireWall);
+			gcm.stageComponent(c1);
+			gcm.stageComponent(c2);
+			gcm.stageComponent(c3);
+			gcm.stageComponent(c4);
+			avatar = new Avatar();
+			gcm.stageComponent(avatar);
+			
+			score = 0;
+			
+			timeBeforeEnd = END_TIME * 1000;
+			
+	//		container.setMusicOn(false);
+			music.play(1, 0.2f);
+		}
+		catch(Throwable e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -91,15 +106,15 @@ public class GamePlay extends UIBasicGameState {
 			throws SlickException {
 		g.setFont(SpammerTheme.font);
 		g.setBackground(Color.gray);
+		g.drawImage(background, 0, 0);
 		scoreUI.draw(0, 0);
 		fieldUI.draw(0, 478);
 		timeUI.draw(442, 0);
 		firewallUI.draw(620, 0);
 		gcm.renderAll(gc, sbg, g, new Rectangle(0, 0, 800, 600), true);
-		logo.draw(275, -10);
 		g.setColor(Color.black);
 		g.setFont(SpammerTheme.fontBig);
-		g.drawString("Score: " + score, 20, 20);
+		g.drawString("Score: " + score, 20, 10);
 
 		RenderTimer.draw(gc, g, (float) timeBeforeEnd / 1000.f);
 	}
@@ -112,7 +127,7 @@ public class GamePlay extends UIBasicGameState {
 		if(timeBeforeEnd <= 0){
 			sbg.enterState(MainGame.SCORES_SCREEN);
 		}
-				
+		
 		gcm.updateAll(gc, sbg, delta);
 	}
 

@@ -16,7 +16,7 @@ import backend.geom.Rectangle;
 public class Character extends GameComponent
 {
 	private static int NB_CHAR = 0;
-	
+
 	private static final int TIME_SPEECH = 5000; //Temps de l'etat
 	private static final int TIME_DAFUQ = 2000; 
 	private static final int TIME_SPAMMED = 2000; 
@@ -50,11 +50,10 @@ public class Character extends GameComponent
 	private SpriteSheet img;
 	private int x, y;
 	
-	public Character()
+	public Character(int id)
 	{
 		profile = new CharacterProfile();
-		this.id = NB_CHAR;
-		NB_CHAR ++;
+		this.id = id;
 		lastSpeak = MathHelper.randInt(0, 10000);
 		try {
 			img = new SpriteSheet(new Image(IMAGE_BY_ID[id]), 100, 175);

@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.newdawn.slick.util.Log;
 
@@ -55,13 +56,21 @@ public class XMLTools
 		XStream xstream = new XStream(new DomDriver());
 		try
 		{
-			FileInputStream fin = new FileInputStream(fileName);
-			object = xstream.fromXML(fin);
+			FileInputStream fis = new FileInputStream(fileName);
+			object = decodeFromStream(fis);
 		} catch (FileNotFoundException e)
 		{
 			Log.error("Couldn't read from " + fileName);
 			e.printStackTrace();
 		}
+		return object;
+	}
+	
+	public static Object decodeFromStream(InputStream is)
+	{
+		Object object = null;
+		XStream xstream = new XStream(new DomDriver());
+		object = xstream.fromXML(is);
 		return object;
 	}
 
